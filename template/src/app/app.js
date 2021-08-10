@@ -1,5 +1,5 @@
 // Licensed under the MIT License
-// https://github.com/craigahobbs/{{package}}/blob/main/LICENSE
+// https://github.com/{{github}}/{{package}}/blob/main/LICENSE
 
 import * as smd from 'schema-markdown/index.js';
 import {getMarkdownTitle, markdownElements, parseMarkdown} from 'markdown-model/index.js';
@@ -73,7 +73,7 @@ export class {{class}} {
         this.params = smd.validateType(appHashTypes, '{{class}}', params);
     }
 
-    // Render the Markdown application
+    // Render the application
     async render() {
         let result;
         try {
@@ -97,7 +97,7 @@ export class {{class}} {
         renderElements(this.window.document.body, result.elements);
     }
 
-    // Generate the Markdown application's element model
+    // Generate the application's element model
     async main() {
         // Application command?
         if ('cmd' in this.params) {
@@ -105,16 +105,16 @@ export class {{class}} {
             return {'elements': (new UserTypeElements(this.params)).getElements(appHashTypes, '{{class}}')};
         }
 
-        // Load the resource
+        // Load the text resource
         const url = 'url' in this.params ? this.params.url : this.defaultURL;
         const response = await this.window.fetch(url);
         if (!response.ok) {
             const status = response.statusText;
             throw new Error(`Could not fetch "${url}"${status === '' ? '' : `, ${JSON.stringify(status)}`}`);
         }
+        const text = await response.text();
 
         // Render the text as Markdown
-        const text = await response.text();
         const markdownModel = parseMarkdown(text);
         const markdownTitle = getMarkdownTitle(markdownModel);
         const result = {'elements': markdownElements(markdownModel, url)};

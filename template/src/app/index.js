@@ -1,4 +1,4 @@
 // Licensed under the MIT License
-// https://github.com/craigahobbs/schema-markdown-doc/blob/main/LICENSE
+// https://github.com/{{github}}/{{package}}/blob/main/LICENSE
 
 export {{'{'}}{{class}}} from './app.js';

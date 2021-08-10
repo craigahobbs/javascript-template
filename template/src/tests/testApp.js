@@ -1,5 +1,5 @@
 // Licensed under the MIT License
-// https://github.com/craigahobbs/{{package}}/blob/main/LICENSE
+// https://github.com/{{github}}/{{package}}/blob/main/LICENSE
 
 /* eslint-disable id-length */
 
