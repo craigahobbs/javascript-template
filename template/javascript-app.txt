@@ -1,0 +1,5 @@
+{# Delete this utility file #}
+{% template_specialize_rename 'javascript-app.txt' %}
+
+{# Rename package source directory #}
+{% template_specialize_rename 'src/app', package %}
