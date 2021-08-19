@@ -1,0 +1,30 @@
+{
+    "type": "module",
+    "name": "package-name",
+    "version": "0.9.0",
+    "description": "package-name",
+    "keywords": "package-name",
+    "homepage": "https://github.com/johndoe/package-name#readme",
+    "bugs": "https://github.com/johndoe/package-name/issues",
+    "license": "MIT",
+    "author": {
+        "name": "John Doe",
+        "email": "johndoe@gmail.com",
+        "url": "https://github.com/johndoe"
+    },
+    "files": [
+        "index.js",
+        "src/package-name/**/*"
+    ],
+    "scripts": {
+        "test": "ava -v 'src/tests/**/*.js'"
+    },
+    "dependencies": {
+        "element-model": "~0.9",
+        "markdown-model": "~0.9",
+        "schema-markdown": "~1.0",
+        "schema-markdown-doc": "~0.9"
+    },
+    "devDependencies": {
+    }
+}

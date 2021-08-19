@@ -1,0 +1,4 @@
+/build/
+/test_actual/
+/pylintrc
+__pycache__/
