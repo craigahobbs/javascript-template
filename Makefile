@@ -27,7 +27,6 @@ commit: test lint
 .PHONY: clean
 clean:
 	rm -rf __pycache__/ build/ test_actual/ pylintrc
-	$(foreach DIR, $(wildcard test_expected/*),$(MAKE) -C $(DIR) clean &&) :
 
 
 .PHONY: superclean
@@ -52,7 +51,6 @@ changelog: build/venv.build
 
 build/venv.build:
 	python3 -m venv build/venv
-	build/venv/bin/pip --disable-pip-version-check --no-cache-dir install --progress-bar off -U pip setuptools wheel
-	build/venv/bin/pip --disable-pip-version-check --no-cache-dir install --progress-bar off \
-		pylint=="$(PYLINT_VERSION)" simple-git-changelog template-specialize
+	build/venv/bin/pip -q install --progress-bar off -U pip setuptools wheel
+	build/venv/bin/pip -q install --progress-bar off pylint=="$(PYLINT_VERSION)" simple-git-changelog template-specialize
 	touch $@
