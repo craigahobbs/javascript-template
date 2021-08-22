@@ -3,35 +3,50 @@
 
 /* eslint-disable id-length */
 
-import {{'{'}}{{class}}} from '../{{package}}/index.js';
+{% set packageClass = package.replace('-', ' ').title().replace(' ', '') -%}
+{% if app is not defined or not app -%}
+import {sumNumbers} from '../{{package}}/index.js';
+import test from 'ava';
+
+
+test('sumNumbers', (t) => {
+    t.is(sumNumbers([1, 2, 3]), 6);
+});
+
+
+test('sumNumbers, empty', (t) => {
+    t.is(sumNumbers([]), 0);
+});
+{%- else -%}
+import {{'{'}}{{packageClass}}} from '../{{package}}/index.js';
 import Window from 'window';
 import test from 'ava';
 
 
-test('{{class}}, constructor', (t) => {
+test('{{packageClass}}, constructor', (t) => {
     const window = new Window();
-    const app = new {{class}}(window, 'README.md');
+    const app = new {{packageClass}}(window, 'README.md');
     t.is(app.window, window);
     t.is(app.defaultURL, 'README.md');
     t.is(app.params, null);
 });
 
 
-test('{{class}}.run, help command', async (t) => {
+test('{{packageClass}}.run, help command', async (t) => {
     const window = new Window();
     window.location.hash = '#cmd.help=1';
-    const app = await {{class}}.run(window);
+    const app = await {{packageClass}}.run(window);
     t.is(app.window, window);
     t.is(app.defaultURL, 'README.md');
     t.deepEqual(app.params, {'cmd': {'help': 1}});
-    t.is(window.document.title, '{{class}}');
+    t.is(window.document.title, '{{packageClass}}');
     t.true(window.document.body.innerHTML.startsWith(
-        '<h1 id="cmd.help=1&amp;type_{{class}}"><a class="linktarget">{{class}}</a></h1>'
+        '<h1 id="cmd.help=1&amp;type_{{packageClass}}"><a class="linktarget">{{packageClass}}</a></h1>'
     ));
 });
 
 
-test('{{class}}.run, main', async (t) => {
+test('{{packageClass}}.run, main', async (t) => {
     const window = new Window();
     const fetchResolve = (url) => {
         t.is(url, 'README.md');
@@ -43,7 +58,7 @@ test('{{class}}.run, main', async (t) => {
         resolve(fetchResolve(url));
     });
     window.location.hash = '#';
-    const app = await {{class}}.run(window);
+    const app = await {{packageClass}}.run(window);
     t.is(app.window, window);
     t.is(app.defaultURL, 'README.md');
     t.deepEqual(app.params, {});
@@ -52,19 +67,19 @@ test('{{class}}.run, main', async (t) => {
 });
 
 
-test('{{class}}.run, hash parameter error', async (t) => {
+test('{{packageClass}}.run, hash parameter error', async (t) => {
     const window = new Window();
     window.location.hash = '#foo=bar';
-    const app = await {{class}}.run(window);
+    const app = await {{packageClass}}.run(window);
     t.is(app.window, window);
     t.is(app.defaultURL, 'README.md');
     t.is(app.params, null);
-    t.is(window.document.title, '{{class}}');
+    t.is(window.document.title, '{{packageClass}}');
     t.is(window.document.body.innerHTML, "<p>Error: Unknown member 'foo'</p>");
 });
 
 
-test('{{class}}.main', async (t) => {
+test('{{packageClass}}.main', async (t) => {
     const window = new Window();
     const fetchResolve = (url) => {
         t.is(url, 'README.md');
@@ -75,7 +90,7 @@ test('{{class}}.main', async (t) => {
     window.fetch = (url) => new Promise((resolve) => {
         resolve(fetchResolve(url));
     });
-    const app = new {{class}}(window, 'README.md');
+    const app = new {{packageClass}}(window, 'README.md');
     app.updateParams('');
     t.deepEqual(
         await app.main(),
@@ -89,7 +104,7 @@ test('{{class}}.main', async (t) => {
 });
 
 
-test('{{class}}.main, url', async (t) => {
+test('{{packageClass}}.main, url', async (t) => {
     const window = new Window();
     const fetchResolve = (url) => {
         t.is(url, 'other.md');
@@ -100,7 +115,7 @@ test('{{class}}.main, url', async (t) => {
     window.fetch = (url) => new Promise((resolve) => {
         resolve(fetchResolve(url));
     });
-    const app = new {{class}}(window, 'README.md');
+    const app = new {{packageClass}}(window, 'README.md');
     app.updateParams('url=other.md');
     t.deepEqual(
         await app.main(),
@@ -114,7 +129,7 @@ test('{{class}}.main, url', async (t) => {
 });
 
 
-test('{{class}}.main, fetch error', async (t) => {
+test('{{packageClass}}.main, fetch error', async (t) => {
     const window = new Window();
     const fetchResolve = (url) => {
         t.is(url, 'README.md');
@@ -123,7 +138,7 @@ test('{{class}}.main, fetch error', async (t) => {
     window.fetch = (url) => new Promise((resolve) => {
         resolve(fetchResolve(url));
     });
-    const app = new {{class}}(window, 'README.md');
+    const app = new {{packageClass}}(window, 'README.md');
     app.updateParams('');
     let errorMessage = null;
     try {
@@ -135,7 +150,7 @@ test('{{class}}.main, fetch error', async (t) => {
 });
 
 
-test('{{class}}.main, fetch error no status text', async (t) => {
+test('{{packageClass}}.main, fetch error no status text', async (t) => {
     const window = new Window();
     const fetchResolve = (url) => {
         t.is(url, 'README.md');
@@ -144,7 +159,7 @@ test('{{class}}.main, fetch error no status text', async (t) => {
     window.fetch = (url) => new Promise((resolve) => {
         resolve(fetchResolve(url));
     });
-    const app = new {{class}}(window, 'README.md');
+    const app = new {{packageClass}}(window, 'README.md');
     app.updateParams('');
     let errorMessage = null;
     try {
@@ -156,7 +171,7 @@ test('{{class}}.main, fetch error no status text', async (t) => {
 });
 
 
-test('{{class}}.main, no title', async (t) => {
+test('{{packageClass}}.main, no title', async (t) => {
     const window = new Window();
     const fetchResolve = (url) => {
         t.is(url, 'README.md');
@@ -167,7 +182,7 @@ test('{{class}}.main, no title', async (t) => {
     window.fetch = (url) => new Promise((resolve) => {
         resolve(fetchResolve(url));
     });
-    const app = new {{class}}(window, 'README.md');
+    const app = new {{packageClass}}(window, 'README.md');
     app.updateParams('');
     t.deepEqual(
         await app.main(),
@@ -178,3 +193,4 @@ test('{{class}}.main, no title', async (t) => {
         }
     );
 });
+{%- endif %}

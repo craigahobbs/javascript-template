@@ -1,4 +1,4 @@
 // Licensed under the MIT License
 // https://github.com/johndoe/my-package/blob/main/LICENSE
 
-export * from './src/my-package/index.js';
+export {sumNumbers} from './myPackage.js';

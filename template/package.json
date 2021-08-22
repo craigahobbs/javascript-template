@@ -18,13 +18,12 @@
     ],
     "scripts": {
         "test": "ava -v 'src/tests/**/*.js'"
-    },
+    }{% if app is defined and app %},
     "dependencies": {
         "element-model": "~0.9",
         "markdown-model": "~0.9",
         "schema-markdown": "~1.0",
         "schema-markdown-doc": "~0.9"
-    },
-    "devDependencies": {
     }
+{%- endif %}
 }

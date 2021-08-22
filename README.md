@@ -1,3 +1,3 @@
-# javascript-app-template
+# javascript-template
 
 Coming soon!

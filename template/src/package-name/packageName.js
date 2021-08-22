@@ -1,6 +1,21 @@
 // Licensed under the MIT License
 // https://github.com/{{github}}/{{package}}/blob/main/LICENSE
 
+{%- set packageClass = package.replace('-', ' ').title().replace(' ', '') %}
+{%- if app is not defined or not app %}
+
+
+/**
+ * Sum an array of numbers
+ *
+ * @property {number[]} numbers - The array of numbers to sum
+ * @returns {number}
+ */
+export function sumNumbers(numbers) {
+    return numbers.reduce((first, second) => first + second, 0);
+}
+{%- else %}
+
 import * as smd from 'schema-markdown/index.js';
 import {getMarkdownTitle, markdownElements, parseMarkdown} from 'markdown-model/index.js';
 import {UserTypeElements} from 'schema-markdown-doc/index.js';
@@ -9,8 +24,8 @@ import {renderElements} from 'element-model/index.js';
 
 // The application's hash parameter type model
 const appHashTypes = (new smd.SchemaMarkdownParser(`\
-# The {{class}} application hash parameters struct
-struct {{class}}
+# The {{packageClass}} application hash parameters struct
+struct {{packageClass}}
 
     # The resource URL
     optional string(len > 0) url
@@ -27,13 +42,13 @@ union Command
 
 
 /**
- * The {{class}} application
+ * The {{packageClass}} application
  *
  * @property {Object} window - The web browser window object
  * @property {string} defaultURL - The default resource URL
  * @property {Object} params - The validated hash parameters object
  */
-export class {{class}} {
+export class {{packageClass}} {
     /**
      * Create an application instance
      *
@@ -51,10 +66,10 @@ export class {{class}} {
      *
      * @property {Object} window - The web browser window object
      * @property {string} [defaultURL='README.md'] - The default resource URL
-     * @returns {{'{'}}{{class}}}
+     * @returns {{'{'}}{{packageClass}}}
      */
     static async run(window, defaultURL = 'README.md') {
-        const app = new {{class}}(window, defaultURL);
+        const app = new {{packageClass}}(window, defaultURL);
         await app.render();
         window.addEventListener('hashchange', () => app.render(), false);
         return app;
@@ -70,7 +85,7 @@ export class {{class}} {
         const params = smd.decodeQueryString(paramStrActual);
 
         // Validate the params
-        this.params = smd.validateType(appHashTypes, '{{class}}', params);
+        this.params = smd.validateType(appHashTypes, '{{packageClass}}', params);
     }
 
     // Render the application
@@ -93,7 +108,7 @@ export class {{class}} {
         }
 
         // Render the application
-        this.window.document.title = 'title' in result ? result.title : '{{class}}';
+        this.window.document.title = 'title' in result ? result.title : '{{packageClass}}';
         renderElements(this.window.document.body, result.elements);
     }
 
@@ -102,7 +117,7 @@ export class {{class}} {
         // Application command?
         if ('cmd' in this.params) {
             // 'help' in this.params.cmd
-            return {'elements': (new UserTypeElements(this.params)).getElements(appHashTypes, '{{class}}')};
+            return {'elements': (new UserTypeElements(this.params)).getElements(appHashTypes, '{{packageClass}}')};
         }
 
         // Load the text resource
@@ -124,3 +139,4 @@ export class {{class}} {
         return result;
     }
 }
+{%- endif %}

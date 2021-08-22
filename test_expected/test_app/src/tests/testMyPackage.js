@@ -1,37 +1,37 @@
 // Licensed under the MIT License
-// https://github.com/johndoe/package-name/blob/main/LICENSE
+// https://github.com/johndoe/my-package/blob/main/LICENSE
 
 /* eslint-disable id-length */
 
-import {PackageName} from '../package-name/index.js';
+import {MyPackage} from '../my-package/index.js';
 import Window from 'window';
 import test from 'ava';
 
 
-test('PackageName, constructor', (t) => {
+test('MyPackage, constructor', (t) => {
     const window = new Window();
-    const app = new PackageName(window, 'README.md');
+    const app = new MyPackage(window, 'README.md');
     t.is(app.window, window);
     t.is(app.defaultURL, 'README.md');
     t.is(app.params, null);
 });
 
 
-test('PackageName.run, help command', async (t) => {
+test('MyPackage.run, help command', async (t) => {
     const window = new Window();
     window.location.hash = '#cmd.help=1';
-    const app = await PackageName.run(window);
+    const app = await MyPackage.run(window);
     t.is(app.window, window);
     t.is(app.defaultURL, 'README.md');
     t.deepEqual(app.params, {'cmd': {'help': 1}});
-    t.is(window.document.title, 'PackageName');
+    t.is(window.document.title, 'MyPackage');
     t.true(window.document.body.innerHTML.startsWith(
-        '<h1 id="cmd.help=1&amp;type_PackageName"><a class="linktarget">PackageName</a></h1>'
+        '<h1 id="cmd.help=1&amp;type_MyPackage"><a class="linktarget">MyPackage</a></h1>'
     ));
 });
 
 
-test('PackageName.run, main', async (t) => {
+test('MyPackage.run, main', async (t) => {
     const window = new Window();
     const fetchResolve = (url) => {
         t.is(url, 'README.md');
@@ -43,7 +43,7 @@ test('PackageName.run, main', async (t) => {
         resolve(fetchResolve(url));
     });
     window.location.hash = '#';
-    const app = await PackageName.run(window);
+    const app = await MyPackage.run(window);
     t.is(app.window, window);
     t.is(app.defaultURL, 'README.md');
     t.deepEqual(app.params, {});
@@ -52,19 +52,19 @@ test('PackageName.run, main', async (t) => {
 });
 
 
-test('PackageName.run, hash parameter error', async (t) => {
+test('MyPackage.run, hash parameter error', async (t) => {
     const window = new Window();
     window.location.hash = '#foo=bar';
-    const app = await PackageName.run(window);
+    const app = await MyPackage.run(window);
     t.is(app.window, window);
     t.is(app.defaultURL, 'README.md');
     t.is(app.params, null);
-    t.is(window.document.title, 'PackageName');
+    t.is(window.document.title, 'MyPackage');
     t.is(window.document.body.innerHTML, "<p>Error: Unknown member 'foo'</p>");
 });
 
 
-test('PackageName.main', async (t) => {
+test('MyPackage.main', async (t) => {
     const window = new Window();
     const fetchResolve = (url) => {
         t.is(url, 'README.md');
@@ -75,7 +75,7 @@ test('PackageName.main', async (t) => {
     window.fetch = (url) => new Promise((resolve) => {
         resolve(fetchResolve(url));
     });
-    const app = new PackageName(window, 'README.md');
+    const app = new MyPackage(window, 'README.md');
     app.updateParams('');
     t.deepEqual(
         await app.main(),
@@ -89,7 +89,7 @@ test('PackageName.main', async (t) => {
 });
 
 
-test('PackageName.main, url', async (t) => {
+test('MyPackage.main, url', async (t) => {
     const window = new Window();
     const fetchResolve = (url) => {
         t.is(url, 'other.md');
@@ -100,7 +100,7 @@ test('PackageName.main, url', async (t) => {
     window.fetch = (url) => new Promise((resolve) => {
         resolve(fetchResolve(url));
     });
-    const app = new PackageName(window, 'README.md');
+    const app = new MyPackage(window, 'README.md');
     app.updateParams('url=other.md');
     t.deepEqual(
         await app.main(),
@@ -114,7 +114,7 @@ test('PackageName.main, url', async (t) => {
 });
 
 
-test('PackageName.main, fetch error', async (t) => {
+test('MyPackage.main, fetch error', async (t) => {
     const window = new Window();
     const fetchResolve = (url) => {
         t.is(url, 'README.md');
@@ -123,7 +123,7 @@ test('PackageName.main, fetch error', async (t) => {
     window.fetch = (url) => new Promise((resolve) => {
         resolve(fetchResolve(url));
     });
-    const app = new PackageName(window, 'README.md');
+    const app = new MyPackage(window, 'README.md');
     app.updateParams('');
     let errorMessage = null;
     try {
@@ -135,7 +135,7 @@ test('PackageName.main, fetch error', async (t) => {
 });
 
 
-test('PackageName.main, fetch error no status text', async (t) => {
+test('MyPackage.main, fetch error no status text', async (t) => {
     const window = new Window();
     const fetchResolve = (url) => {
         t.is(url, 'README.md');
@@ -144,7 +144,7 @@ test('PackageName.main, fetch error no status text', async (t) => {
     window.fetch = (url) => new Promise((resolve) => {
         resolve(fetchResolve(url));
     });
-    const app = new PackageName(window, 'README.md');
+    const app = new MyPackage(window, 'README.md');
     app.updateParams('');
     let errorMessage = null;
     try {
@@ -156,7 +156,7 @@ test('PackageName.main, fetch error no status text', async (t) => {
 });
 
 
-test('PackageName.main, no title', async (t) => {
+test('MyPackage.main, no title', async (t) => {
     const window = new Window();
     const fetchResolve = (url) => {
         t.is(url, 'README.md');
@@ -167,7 +167,7 @@ test('PackageName.main, no title', async (t) => {
     window.fetch = (url) => new Promise((resolve) => {
         resolve(fetchResolve(url));
     });
-    const app = new PackageName(window, 'README.md');
+    const app = new MyPackage(window, 'README.md');
     app.updateParams('');
     t.deepEqual(
         await app.main(),

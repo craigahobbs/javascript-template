@@ -1,3 +1,4 @@
+{% set packageClass = package.replace('-', ' ').title().replace(' ', '') -%}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,7 +10,7 @@
     <body>
     </body>
     <script type="module">
-        import {{'{'}}{{class}}} from './{{package}}/index.js';
-        {{class}}.run(window);
+        import {{'{'}}{{packageClass}}} from './{{package}}/index.js';
+        {{packageClass}}.run(window);
     </script>
 </html>

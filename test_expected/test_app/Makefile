@@ -1,5 +1,5 @@
 # Licensed under the MIT License
-# https://github.com/{{github}}/{{package}}/blob/main/LICENSE
+# https://github.com/johndoe/my-package/blob/main/LICENSE
 
 
 # Download JavaScript Build
@@ -13,12 +13,10 @@ WGET_CMD = if which wget; then wget -q -c $(1); else curl -Os $(1); fi
 $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-build/main/Makefile.base))
 $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-build/main/jsdoc.json))
 $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-build/main/.eslintrc.cjs))
-{%- if app is defined and app %}
 
 
 # Set gh-pages source
 GHPAGES_SRC := build/app/
-{%- endif %}
 
 
 # Include JavaScript Build
@@ -27,8 +25,6 @@ include Makefile.base
 
 clean:
 	rm -rf Makefile.base jsdoc.json .eslintrc.cjs
-
-{%- if app is defined and app %}
 
 
 help:
@@ -50,7 +46,7 @@ app: build/npm.build
 	cp -R \
 		README.md \
 		static/* \
-		src/{{package}} \
+		src/my-package \
 		node_modules/element-model/src/element-model \
 		node_modules/markdown-model/src/markdown-model \
 		node_modules/markdown-model/static/markdown-model.css \
@@ -64,4 +60,3 @@ app: build/npm.build
 		sed -E "s/from '([^\.])/from '..\/\1/g" $$FILE > $$FILE.tmp && \
 		mv $$FILE.tmp $$FILE; \
 	done
-{%- endif %}

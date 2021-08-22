@@ -1,5 +1,5 @@
 // Licensed under the MIT License
-// https://github.com/johndoe/package-name/blob/main/LICENSE
+// https://github.com/johndoe/my-package/blob/main/LICENSE
 
 import * as smd from 'schema-markdown/index.js';
 import {getMarkdownTitle, markdownElements, parseMarkdown} from 'markdown-model/index.js';
@@ -9,8 +9,8 @@ import {renderElements} from 'element-model/index.js';
 
 // The application's hash parameter type model
 const appHashTypes = (new smd.SchemaMarkdownParser(`\
-# The PackageName application hash parameters struct
-struct PackageName
+# The MyPackage application hash parameters struct
+struct MyPackage
 
     # The resource URL
     optional string(len > 0) url
@@ -27,13 +27,13 @@ union Command
 
 
 /**
- * The PackageName application
+ * The MyPackage application
  *
  * @property {Object} window - The web browser window object
  * @property {string} defaultURL - The default resource URL
  * @property {Object} params - The validated hash parameters object
  */
-export class PackageName {
+export class MyPackage {
     /**
      * Create an application instance
      *
@@ -51,10 +51,10 @@ export class PackageName {
      *
      * @property {Object} window - The web browser window object
      * @property {string} [defaultURL='README.md'] - The default resource URL
-     * @returns {PackageName}
+     * @returns {MyPackage}
      */
     static async run(window, defaultURL = 'README.md') {
-        const app = new PackageName(window, defaultURL);
+        const app = new MyPackage(window, defaultURL);
         await app.render();
         window.addEventListener('hashchange', () => app.render(), false);
         return app;
@@ -70,7 +70,7 @@ export class PackageName {
         const params = smd.decodeQueryString(paramStrActual);
 
         // Validate the params
-        this.params = smd.validateType(appHashTypes, 'PackageName', params);
+        this.params = smd.validateType(appHashTypes, 'MyPackage', params);
     }
 
     // Render the application
@@ -93,7 +93,7 @@ export class PackageName {
         }
 
         // Render the application
-        this.window.document.title = 'title' in result ? result.title : 'PackageName';
+        this.window.document.title = 'title' in result ? result.title : 'MyPackage';
         renderElements(this.window.document.body, result.elements);
     }
 
@@ -102,7 +102,7 @@ export class PackageName {
         // Application command?
         if ('cmd' in this.params) {
             // 'help' in this.params.cmd
-            return {'elements': (new UserTypeElements(this.params)).getElements(appHashTypes, 'PackageName')};
+            return {'elements': (new UserTypeElements(this.params)).getElements(appHashTypes, 'MyPackage')};
         }
 
         // Load the text resource
