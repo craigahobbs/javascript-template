@@ -15,9 +15,48 @@ $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-bui
 $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-build/main/.eslintrc.cjs))
 
 
+# Set gh-pages source
+GHPAGES_SRC := build/app/
+
+
 # Include JavaScript Build
 include Makefile.base
 
 
 clean:
 	rm -rf Makefile.base jsdoc.json .eslintrc.cjs
+
+
+help:
+	@echo '            [app|run|'
+
+
+.PHONY: run
+run: app
+	python3 -m http.server --directory build/app
+
+
+.PHONY: app
+commit: app
+app: build/npm.build
+	rm -rf build/app/
+	mkdir -p build/app/
+
+    # Copy dependencies
+	cp -R \
+		README.md \
+		static/* \
+		src/my-package \
+		node_modules/element-model/src/element-model \
+		node_modules/markdown-model/src/markdown-model \
+		node_modules/markdown-model/static/markdown-model.css \
+		node_modules/schema-markdown/src/schema-markdown \
+		node_modules/schema-markdown-doc/src/schema-markdown-doc \
+		node_modules/schema-markdown-doc/static/schema-markdown-doc.css \
+		build/app/
+
+    # Fix imports
+	for FILE in `find build/app/* -name '*.js'`; do \
+		sed -E "s/from '([^\.])/from '..\/\1/g" $$FILE > $$FILE.tmp && \
+		mv $$FILE.tmp $$FILE; \
+	done

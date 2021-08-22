@@ -4,7 +4,7 @@
 /* eslint-disable id-length */
 
 {% set packageClass = package.replace('-', ' ').title().replace(' ', '') -%}
-{% if app is not defined or not app -%}
+{% if noapp is defined and noapp -%}
 import {sumNumbers} from '../{{package}}/index.js';
 import test from 'ava';
 

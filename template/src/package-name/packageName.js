@@ -2,7 +2,7 @@
 // https://github.com/{{github}}/{{package}}/blob/main/LICENSE
 
 {%- set packageClass = package.replace('-', ' ').title().replace(' ', '') %}
-{%- if app is not defined or not app %}
+{%- if noapp is defined and noapp %}
 
 
 /**

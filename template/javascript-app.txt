@@ -6,8 +6,8 @@
 {% template_specialize_rename 'src/package-name/packageName.js', packageFile %}
 {% template_specialize_rename 'src/tests/testPackageName.js', 'test' + packageFile[:1].upper() + packageFile[1:] %}
 
-{# Delete the static directory (unless this is an app) #}
-{% if app is not defined or not app %}
+{# Delete the static directory (non-app) #}
+{% if noapp is defined and noapp %}
 {% template_specialize_rename 'static' %}
 {% endif %}
 

@@ -13,7 +13,7 @@ WGET_CMD = if which wget; then wget -q -c $(1); else curl -Os $(1); fi
 $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-build/main/Makefile.base))
 $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-build/main/jsdoc.json))
 $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-build/main/.eslintrc.cjs))
-{%- if app is defined and app %}
+{%- if noapp is not defined or not noapp %}
 
 
 # Set gh-pages source
@@ -28,7 +28,7 @@ include Makefile.base
 clean:
 	rm -rf Makefile.base jsdoc.json .eslintrc.cjs
 
-{%- if app is defined and app %}
+{%- if noapp is not defined or not noapp %}
 
 
 help:

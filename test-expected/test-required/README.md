@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/my-package)](https://www.npmjs.com/package/my-package)
 [![GitHub](https://img.shields.io/github/license/johndoe/my-package)](https://github.com/johndoe/my-package/blob/main/LICENSE)
 
-[my-package API Documentation](https://johndoe.github.io/my-package/)
+[my-package Application](https://johndoe.github.io/my-package/)
 
 Coming soon!
 

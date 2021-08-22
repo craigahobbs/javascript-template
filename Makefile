@@ -42,11 +42,11 @@ test:
 $(eval $(call TEST_RULE, required, \
     -k package 'my-package' -k name 'John Doe' -k email 'johndoe@gmail.com' -k github 'johndoe'))
 
-$(eval $(call TEST_RULE, app, \
-    -k package 'my-package' -k name 'John Doe' -k email 'johndoe@gmail.com' -k github 'johndoe' -k app 1))
+$(eval $(call TEST_RULE, noapp, \
+    -k package 'my-package' -k name 'John Doe' -k email 'johndoe@gmail.com' -k github 'johndoe' -k noapp 1))
 
-$(eval $(call TEST_RULE, app-0, \
-    -k package 'my-package' -k name 'John Doe' -k email 'johndoe@gmail.com' -k github 'johndoe' -k app 0))
+$(eval $(call TEST_RULE, noapp-0, \
+    -k package 'my-package' -k name 'John Doe' -k email 'johndoe@gmail.com' -k github 'johndoe' -k noapp 0))
 
 
 .PHONY: changelog
