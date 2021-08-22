@@ -1,0 +1,22 @@
+{
+    "type": "module",
+    "name": "my-package",
+    "version": "0.9.0",
+    "description": "my-package",
+    "keywords": "my-package",
+    "homepage": "https://github.com/johndoe/my-package#readme",
+    "bugs": "https://github.com/johndoe/my-package/issues",
+    "license": "MIT",
+    "author": {
+        "name": "John Doe",
+        "email": "johndoe@gmail.com",
+        "url": "https://github.com/johndoe"
+    },
+    "files": [
+        "index.js",
+        "src/my-package/**/*"
+    ],
+    "scripts": {
+        "test": "ava -v 'src/tests/**/*.js'"
+    }
+}
