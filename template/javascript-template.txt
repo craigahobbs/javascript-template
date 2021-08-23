@@ -1,5 +1,5 @@
 {# Delete this utility file #}
-{% template_specialize_rename 'javascript-app.txt' %}
+{% template_specialize_rename 'javascript-template.txt' %}
 
 {# Rename package source files #}
 {% set packageFile = package[:1] + package.replace('-', ' ').title().replace(' ', '')[1:] + '.js' -%}
