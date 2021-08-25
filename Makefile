@@ -26,11 +26,12 @@ test: test-$(strip $(1))
 
 .PHONY: test-$(strip $(1))
 test-$(strip $(1)): build/venv.build
-	rm -rf test-actual/test-$(strip $(1))/
-	build/venv/bin/template-specialize template/ test-actual/test-$(strip $(1))/ $(strip $(2))
-	diff -r test-actual/test-$(strip $(1))/ test-expected/test-$(strip $(1))/
-	$$(MAKE) -C test-actual/test-$(strip $(1))/ commit
-	rm -rf test-actual/test-$(strip $(1))/
+	@echo 'Testing "$(strip $(1))"...'
+	rm -rf test-actual/$(strip $(1))/
+	build/venv/bin/template-specialize template/ test-actual/$(strip $(1))/ $(strip $(2))
+	diff -r test-actual/$(strip $(1))/ test-expected/$(strip $(1))/
+	$$(MAKE) -C test-actual/$(strip $(1))/ commit
+	rm -rf test-actual/$(strip $(1))/
 endef
 
 
@@ -38,6 +39,7 @@ endef
 .PHONY: test
 test:
 	rm -rf test-actual/
+	@echo Tests completed - all passed
 
 $(eval $(call TEST_RULE, required, \
     -k package 'my-package' -k name 'John Doe' -k email 'johndoe@gmail.com' -k github 'johndoe'))
