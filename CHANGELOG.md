@@ -1,5 +1,7 @@
 ## 2021-08-26
 
+- [0b984a2](https://github.com/craigahobbs/javascript-template/commit/0b984a2) - rename to javascript-build
+
 - [2b31afb](https://github.com/craigahobbs/javascript-template/commit/2b31afb) - add .gitignore
 
 - [3bb55df](https://github.com/craigahobbs/javascript-template/commit/3bb55df) - update readme
