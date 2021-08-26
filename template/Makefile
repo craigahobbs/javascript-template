@@ -2,7 +2,7 @@
 # https://github.com/{{github}}/{{package}}/blob/main/LICENSE
 
 
-# Download JavaScript Build
+# Download javascript-build
 define WGET
 ifeq '$$(wildcard $(notdir $(1)))' ''
 $$(info Downloading $(notdir $(1)))
@@ -21,7 +21,7 @@ GHPAGES_SRC := build/app/
 {%- endif %}
 
 
-# Include JavaScript Build
+# Include javascript-build
 include Makefile.base
 
 
