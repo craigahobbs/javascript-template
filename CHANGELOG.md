@@ -1,3 +1,9 @@
+## 2021-08-26
+
+- [2b31afb](https://github.com/craigahobbs/javascript-template/commit/2b31afb) - add .gitignore
+
+- [3bb55df](https://github.com/craigahobbs/javascript-template/commit/3bb55df) - update readme
+
 ## 2021-08-22
 
 - [7d8bdf8](https://github.com/craigahobbs/javascript-template/commit/7d8bdf8) - replace "app" template variable with "noapp"
