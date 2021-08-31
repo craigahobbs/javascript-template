@@ -1,3 +1,7 @@
+## 2021-08-30
+
+- [5ce7aa8](https://github.com/craigahobbs/javascript-template/commit/5ce7aa8) - element-model 1.0
+
 ## 2021-08-26
 
 - [0b984a2](https://github.com/craigahobbs/javascript-template/commit/0b984a2) - rename to javascript-build
