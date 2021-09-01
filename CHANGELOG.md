@@ -1,3 +1,11 @@
+## 2021-09-01
+
+- [570abb4](https://github.com/craigahobbs/javascript-template/commit/570abb4) - schema-markdown-doc 1.0
+
+## 2021-08-31
+
+- [9924899](https://github.com/craigahobbs/javascript-template/commit/9924899) - markdown-model 1.0
+
 ## 2021-08-30
 
 - [5ce7aa8](https://github.com/craigahobbs/javascript-template/commit/5ce7aa8) - element-model 1.0
