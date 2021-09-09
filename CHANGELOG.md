@@ -1,3 +1,7 @@
+## 2021-09-09
+
+- [9fd943e](https://github.com/craigahobbs/javascript-template/commit/9fd943e) - fix package keywords
+
 ## 2021-09-01
 
 - [570abb4](https://github.com/craigahobbs/javascript-template/commit/570abb4) - schema-markdown-doc 1.0
