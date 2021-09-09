@@ -3,7 +3,9 @@
     "name": "{{package}}",
     "version": "0.9.0",
     "description": "{{package}}",
-    "keywords": "{{package}}",
+    "keywords": [
+        "{{package}}"
+    ],
     "homepage": "https://github.com/{{github}}/{{package}}#readme",
     "bugs": "https://github.com/{{github}}/{{package}}/issues",
     "license": "MIT",
