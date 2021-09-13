@@ -8,7 +8,7 @@
 
 {# Delete the static directory (non-app) #}
 {% if noapp is defined and noapp %}
-{% template_specialize_rename 'static' %}
+  {% template_specialize_rename 'static' %}
 {% endif %}
 
 {# Rename package source directory #}
