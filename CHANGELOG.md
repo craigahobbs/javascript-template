@@ -1,5 +1,7 @@
 ## 2021-09-17
 
+- [51e50de](https://github.com/craigahobbs/javascript-template/commit/51e50de) - update markdown-model
+
 - [044620d](https://github.com/craigahobbs/javascript-template/commit/044620d) - markdown-model 1.1
 
 - [6286ce6](https://github.com/craigahobbs/javascript-template/commit/6286ce6) - fix javascript-template.txt whitespace
