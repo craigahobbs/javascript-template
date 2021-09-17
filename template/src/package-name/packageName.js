@@ -132,7 +132,7 @@ export class {{packageClass}} {
         // Render the text as Markdown
         const markdownModel = parseMarkdown(text);
         const markdownTitle = getMarkdownTitle(markdownModel);
-        const result = {'elements': markdownElements(markdownModel, {url})};
+        const result = {'elements': markdownElements(markdownModel, {'headerIds': true, url})};
         if (markdownTitle !== null) {
             result.title = markdownTitle;
         }
