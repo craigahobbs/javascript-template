@@ -1,3 +1,9 @@
+## 2021-09-17
+
+- [044620d](https://github.com/craigahobbs/javascript-template/commit/044620d) - markdown-model 1.1
+
+- [6286ce6](https://github.com/craigahobbs/javascript-template/commit/6286ce6) - fix javascript-template.txt whitespace
+
 ## 2021-09-09
 
 - [9fd943e](https://github.com/craigahobbs/javascript-template/commit/9fd943e) - fix package keywords
