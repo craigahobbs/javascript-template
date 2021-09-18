@@ -1,5 +1,7 @@
 ## 2021-09-17
 
+- [4a6ae7c](https://github.com/craigahobbs/javascript-template/commit/4a6ae7c) - add markdownElements hashPrefix option
+
 - [51e50de](https://github.com/craigahobbs/javascript-template/commit/51e50de) - update markdown-model
 
 - [044620d](https://github.com/craigahobbs/javascript-template/commit/044620d) - markdown-model 1.1
