@@ -107,22 +107,48 @@ test('{{packageClass}}.main', async (t) => {
 test('{{packageClass}}.main, url', async (t) => {
     const window = new Window();
     const fetchResolve = (url) => {
-        t.is(url, 'other.md');
+        t.is(url, 'sub/other.md');
         return {'ok': true, 'text': () => new Promise((resolve) => {
-            resolve('# Hello');
+            resolve(`\
+# Hello
+
+[A relative link](foo.html)
+
+[A page link](#hello)
+`);
         })};
     };
     window.fetch = (url) => new Promise((resolve) => {
         resolve(fetchResolve(url));
     });
     const app = new {{packageClass}}(window, 'README.md');
-    app.updateParams('url=other.md');
+    app.updateParams('url=sub%2Fother.md');
     t.deepEqual(
         await app.main(),
         {
             'title': 'Hello',
             'elements': [
-                {'html': 'h1', 'attr': {'id': 'hello'}, 'elem': [{'text': 'Hello'}]}
+                {'html': 'h1', 'attr': {'id': 'url=sub%2Fother.md&hello'}, 'elem': [{'text': 'Hello'}]},
+                {
+                    'html': 'p',
+                    'elem': [
+                        {
+                            'html': 'a',
+                            'attr': {'href': 'sub/foo.html'},
+                            'elem': [{'text': 'A relative link'}]
+                        }
+                    ]
+                },
+                {
+                    'html': 'p',
+                    'elem': [
+                        {
+                            'html': 'a',
+                            'attr': {'href': '#url=sub%2Fother.md&hello'},
+                            'elem': [{'text': 'A page link'}]
+                        }
+                    ]
+                }
             ]
         }
     );
