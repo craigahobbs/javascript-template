@@ -1,3 +1,7 @@
+## 2021-09-30
+
+- [e574cfb](https://github.com/craigahobbs/javascript-template/commit/e574cfb) - add index.html title and description
+
 ## 2021-09-17
 
 - [4a6ae7c](https://github.com/craigahobbs/javascript-template/commit/4a6ae7c) - add markdownElements hashPrefix option
