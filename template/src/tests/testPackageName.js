@@ -41,7 +41,7 @@ test('{{packageClass}}.run, help command', async (t) => {
     t.deepEqual(app.params, {'cmd': {'help': 1}});
     t.is(window.document.title, '{{packageClass}}');
     t.true(window.document.body.innerHTML.startsWith(
-        '<h1 id="cmd.help=1&amp;type_{{packageClass}}"><a class="linktarget">{{packageClass}}</a></h1>'
+        '<h1 id="cmd.help=1&amp;type_{{packageClass}}">{{packageClass}}</h1>'
     ));
 });
 
