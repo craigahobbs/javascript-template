@@ -8,7 +8,7 @@
 /**
  * Sum an array of numbers
  *
- * @property {number[]} numbers - The array of numbers to sum
+ * @param {number[]} numbers - The array of numbers to sum
  * @returns {number}
  */
 export function sumNumbers(numbers) {
@@ -52,8 +52,8 @@ export class {{packageClass}} {
     /**
      * Create an application instance
      *
-     * @property {Object} window - The web browser window object
-     * @property {string} defaultURL - The default resource URL
+     * @param {Object} window - The web browser window object
+     * @param {string} defaultURL - The default resource URL
      */
     constructor(window, defaultURL) {
         this.window = window;
@@ -64,8 +64,8 @@ export class {{packageClass}} {
     /**
      * Run the application
      *
-     * @property {Object} window - The web browser window object
-     * @property {string} [defaultURL='README.md'] - The default resource URL
+     * @param {Object} window - The web browser window object
+     * @param {string} [defaultURL='README.md'] - The default resource URL
      * @returns {{'{'}}{{packageClass}}}
      */
     static async run(window, defaultURL = 'README.md') {

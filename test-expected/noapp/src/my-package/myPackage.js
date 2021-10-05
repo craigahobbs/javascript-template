@@ -5,7 +5,7 @@
 /**
  * Sum an array of numbers
  *
- * @property {number[]} numbers - The array of numbers to sum
+ * @param {number[]} numbers - The array of numbers to sum
  * @returns {number}
  */
 export function sumNumbers(numbers) {

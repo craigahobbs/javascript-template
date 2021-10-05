@@ -37,8 +37,8 @@ export class MyPackage {
     /**
      * Create an application instance
      *
-     * @property {Object} window - The web browser window object
-     * @property {string} defaultURL - The default resource URL
+     * @param {Object} window - The web browser window object
+     * @param {string} defaultURL - The default resource URL
      */
     constructor(window, defaultURL) {
         this.window = window;
@@ -49,8 +49,8 @@ export class MyPackage {
     /**
      * Run the application
      *
-     * @property {Object} window - The web browser window object
-     * @property {string} [defaultURL='README.md'] - The default resource URL
+     * @param {Object} window - The web browser window object
+     * @param {string} [defaultURL='README.md'] - The default resource URL
      * @returns {MyPackage}
      */
     static async run(window, defaultURL = 'README.md') {
