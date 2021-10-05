@@ -1,3 +1,7 @@
+## 2021-10-05
+
+- [ad052de](https://github.com/craigahobbs/javascript-template/commit/ad052de) - fix jsdoc usage
+
 ## 2021-09-30
 
 - [e574cfb](https://github.com/craigahobbs/javascript-template/commit/e574cfb) - add index.html title and description
