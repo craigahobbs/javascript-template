@@ -2,6 +2,9 @@
 # https://github.com/craigahobbs/javascript-template/blob/main/LICENSE
 
 
+MAKEJ ?= -j
+
+
 .PHONY: help
 help:
 	@echo 'usage: make [changelog|clean|commit|superclean|test]'
@@ -30,7 +33,7 @@ test-$(strip $(1)): build/venv.build
 	rm -rf test-actual/$(strip $(1))/
 	build/venv/bin/template-specialize template/ test-actual/$(strip $(1))/ $(strip $(2))
 	diff -r test-actual/$(strip $(1))/ test-expected/$(strip $(1))/
-	$$(MAKE) -C test-actual/$(strip $(1))/ commit
+	$$(MAKE) $(MAKEJ) -C test-actual/$(strip $(1))/ commit
 	rm -rf test-actual/$(strip $(1))/
 endef
 
