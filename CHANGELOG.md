@@ -1,5 +1,9 @@
 ## 2021-12-02
 
+- [c10e6b4](https://github.com/craigahobbs/javascript-template/commit/c10e6b4) - remove readme from app
+
+- [10df44b](https://github.com/craigahobbs/javascript-template/commit/10df44b) - schema-markdown-doc 1.1
+
 - [7df963d](https://github.com/craigahobbs/javascript-template/commit/7df963d) - add schema-markdown-doc dependency
 
 ## 2021-12-01
