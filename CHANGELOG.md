@@ -1,7 +1,5 @@
 ## 2021-12-01
 
-- [c0ec0a4](https://github.com/craigahobbs/javascript-template/commit/c0ec0a4) - cleanup
-
 - [d68e412](https://github.com/craigahobbs/javascript-template/commit/d68e412) - update to use element-app
 
 - [f67e02b](https://github.com/craigahobbs/javascript-template/commit/f67e02b) - run test "make commit" in parallel
