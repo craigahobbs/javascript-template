@@ -21,6 +21,7 @@
         "test": "ava -v test/"
     },
     "dependencies": {
-        "element-app": "~1.0"
+        "element-app": "~1.0",
+        "schema-markdown-doc": "~1.0"
     }
 }

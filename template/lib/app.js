@@ -7,6 +7,7 @@
 /** @module lib/app */
 
 import {ElementApplication} from 'element-app/lib/app.js';
+import {UserTypeElements} from 'schema-markdown-doc/index.js';
 
 
 // The application's hash parameter type model
@@ -46,7 +47,7 @@ export class {{packageClass}} extends ElementApplication {
 
     /**
      * The [Element Application main entry point]{@link
-     * https://craigahobbs.github.io/element-app/module-lib_app.ElementApplication.html#helpElements}.
+     * https://craigahobbs.github.io/element-app/module-lib_app.ElementApplication.html#main}.
      *
      * @override
      * @returns {Object} [MainResult]{@link https://craigahobbs.github.io/element-app/module-lib_app.html#~MainResult}
@@ -55,7 +56,7 @@ export class {{packageClass}} extends ElementApplication {
         // Help?
         if ('help' in this.params) {
             return {
-                'elements': this.helpElements()
+                'elements': new UserTypeElements(this.params).getElements(this.hashTypes, this.hashType)
             };
         }
 

@@ -5,6 +5,7 @@
 
 import {JSDOM} from 'jsdom/lib/api.js';
 import {MyPackage} from '../lib/app.js';
+import {UserTypeElements} from 'schema-markdown-doc/index.js';
 import test from 'ava';
 
 
@@ -20,7 +21,7 @@ test('MyPackage.main, help', (t) => {
     const {window} = new JSDOM();
     const app = new MyPackage(window);
     app.updateParams('help=1');
-    t.deepEqual(app.main(), {'elements': app.helpElements()});
+    t.deepEqual(app.main(), {'elements': new UserTypeElements(app.params).getElements(app.hashTypes, app.hashType)});
 });
 
 

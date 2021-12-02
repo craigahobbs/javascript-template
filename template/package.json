@@ -21,7 +21,8 @@
         "test": "ava -v test/"
     }{% if noapp is not defined or not noapp %},
     "dependencies": {
-        "element-app": "~1.0"
+        "element-app": "~1.0",
+        "schema-markdown-doc": "~1.0"
     }
 {%- endif %}
 }
