@@ -55,7 +55,6 @@ app: build/npm.build
 
     # Copy dependencies
 	cp -R \
-		README.md \
 		static/* \
 		lib \
 		node_modules/element-app \
