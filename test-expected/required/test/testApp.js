@@ -5,7 +5,7 @@
 
 import {JSDOM} from 'jsdom/lib/api.js';
 import {MyPackage} from '../lib/app.js';
-import {UserTypeElements} from 'schema-markdown-doc/index.js';
+import {UserTypeElements} from 'schema-markdown-doc/lib/userTypeElements.js';
 import test from 'ava';
 
 

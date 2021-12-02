@@ -4,7 +4,7 @@
 /** @module lib/app */
 
 import {ElementApplication} from 'element-app/lib/app.js';
-import {UserTypeElements} from 'schema-markdown-doc/index.js';
+import {UserTypeElements} from 'schema-markdown-doc/lib/userTypeElements.js';
 
 
 // The application's hash parameter type model
