@@ -1,5 +1,3 @@
-
-
 // Licensed under the MIT License
 // https://github.com/johndoe/my-package/blob/main/LICENSE
 
@@ -18,26 +16,20 @@ test('MyPackage, constructor', (t) => {
 });
 
 
-test('MyPackage.main, help', async (t) => {
+test('MyPackage.main, help', (t) => {
     const {window} = new JSDOM();
     const app = new MyPackage(window);
     app.updateParams('help=1');
-    const main = await app.main();
-    t.deepEqual(Object.keys(main).sort(), ['elements']);
-    t.deepEqual(main.elements[0][0], {
-        'html': 'h1',
-        'attr': {'id': 'help=1&type_MyPackage'},
-        'elem': {'text': 'MyPackage'}
-    });
+    t.deepEqual(app.main(), {'elements': app.helpElements()});
 });
 
 
-test('MyPackage.main', async (t) => {
+test('MyPackage.main', (t) => {
     const {window} = new JSDOM();
     const app = new MyPackage(window);
     app.updateParams('');
     t.deepEqual(
-        await app.main(),
+        app.main(),
         {
             'elements': {'html': 'p', 'elem': {'text': 'Hello'}}
         }

@@ -1,4 +1,4 @@
-{% set packageClass = package.replace('-', ' ').title().replace(' ', '') %}
+{% set packageClass = package.replace('-', ' ').title().replace(' ', '') -%}
 
 // Licensed under the MIT License
 // https://github.com/{{github}}/{{package}}/blob/main/LICENSE
@@ -18,26 +18,20 @@ test('{{packageClass}}, constructor', (t) => {
 });
 
 
-test('{{packageClass}}.main, help', async (t) => {
+test('{{packageClass}}.main, help', (t) => {
     const {window} = new JSDOM();
     const app = new {{packageClass}}(window);
     app.updateParams('help=1');
-    const main = await app.main();
-    t.deepEqual(Object.keys(main).sort(), ['elements']);
-    t.deepEqual(main.elements[0][0], {
-        'html': 'h1',
-        'attr': {'id': 'help=1&type_{{packageClass}}'},
-        'elem': {'text': '{{packageClass}}'}
-    });
+    t.deepEqual(app.main(), {'elements': app.helpElements()});
 });
 
 
-test('{{packageClass}}.main', async (t) => {
+test('{{packageClass}}.main', (t) => {
     const {window} = new JSDOM();
     const app = new {{packageClass}}(window);
     app.updateParams('');
     t.deepEqual(
-        await app.main(),
+        app.main(),
         {
             'elements': {'html': 'p', 'elem': {'text': 'Hello'}}
         }

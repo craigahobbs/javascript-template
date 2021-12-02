@@ -4,6 +4,8 @@
 // Licensed under the MIT License
 // https://github.com/{{github}}/{{package}}/blob/main/LICENSE
 
+/** @module lib/app */
+
 import {ElementApplication} from 'element-app/lib/app.js';
 
 
@@ -49,8 +51,7 @@ export class {{packageClass}} extends ElementApplication {
      * @override
      * @returns {Object} [MainResult]{@link https://craigahobbs.github.io/element-app/module-lib_app.html#~MainResult}
      */
-    // eslint-disable-next-line require-await
-    async main() {
+    main() {
         // Help?
         if ('help' in this.params) {
             return {
