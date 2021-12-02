@@ -13,6 +13,13 @@ WGET_CMD = if which wget; then wget -q -c $(1); else curl -f -Os $(1); fi
 $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-build/main/Makefile.base))
 $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-build/main/jsdoc.json))
 $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-build/main/.eslintrc.cjs))
+
+
+# Override defaults
+AVA_ARGS ?= test/
+C8_ARGS ?= --100 --allowExternal
+ESLINT_ARGS ?= lib/ test/
+JSDOC_ARGS ?= -c jsdoc.json -r README.md lib/
 {%- if noapp is not defined or not noapp %}
 
 
@@ -50,7 +57,8 @@ app: build/npm.build
 	cp -R \
 		README.md \
 		static/* \
-		src/{{package}} \
+		lib \
+		node_modules/element-app \
 		node_modules/element-model/src/element-model \
 		node_modules/markdown-model/src/markdown-model \
 		node_modules/markdown-model/static/markdown-model.css \
@@ -60,6 +68,10 @@ app: build/npm.build
 		build/app/
 
     # Fix imports
+	for FILE in `find build/app/*/lib -name '*.js'`; do \
+		sed -E "s/from '([^\.])/from '..\/..\/\1/g" $$FILE > $$FILE.tmp && \
+		mv $$FILE.tmp $$FILE; \
+	done
 	for FILE in `find build/app/* -name '*.js'`; do \
 		sed -E "s/from '([^\.])/from '..\/\1/g" $$FILE > $$FILE.tmp && \
 		mv $$FILE.tmp $$FILE; \

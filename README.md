@@ -4,10 +4,9 @@
 [template-specialize](https://pypi.org/project/template-specialize/).
 Generated projects have the following functionality:
 
-- complete build/development experience using [javascript-build](https://github.com/craigahobbs/javascript-build#readme)
+- lightweight, client-rendered web applications using [element-app](https://github.com/craigahobbs/element-app#readme)
 
-- lightweight client-rendered web application using [element-model](https://www.npmjs.com/package/element-model)
-  and [schema-markdown](https://www.npmjs.com/package/schema-markdown)
+- complete build/development experience using [javascript-build](https://github.com/craigahobbs/javascript-build#readme)
 
 - API documentation with [jsdoc](https://www.npmjs.com/package/jsdoc)
 
@@ -48,9 +47,9 @@ The template defines the following template variables:
 
 Generated projects have a complete build/development experience using
 [javascript-build](https://github.com/craigahobbs/javascript-build#readme).
-It provides commands for running unit tests (with and without code coverage), running static code analysis,
-building API documentation, publishing API documentation to GitHub Pages, creating and updating a changelog file,
-and publishing the package to npm.
+It provides commands for running unit tests (with and without code coverage), running static code
+analysis, building API documentation, publishing API documentation to GitHub Pages, creating and
+updating a changelog file, and publishing the package to npm.
 
 Here are a few basic commands to help you get started. For more detailed documentation, see the
 [javascript-build documentation](https://github.com/craigahobbs/javascript-build#readme).
@@ -106,14 +105,24 @@ The project structure is as follows:
 |-- LICENSE
 |-- Makefile
 |-- README.md
-|-- index.js
 |-- package.json
-|-- src
-|   |-- my-package
-|   |   |-- index.js
-|   |   `-- myPackage.js
-|   `-- tests
-|       `-- testMyPackage.js
+|-- lib
+|   `-- app.js
+|-- test
+|   `-- testApp.js
 `-- static
     `-- index.html
+```
+
+For "noapp" projects the structure is:
+
+```
+|-- LICENSE
+|-- Makefile
+|-- README.md
+|-- package.json
+|-- lib
+|   `-- packageName.js
+`-- test
+    `-- testPackageName.js
 ```

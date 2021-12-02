@@ -1,9 +1,11 @@
+{%- set packageFile = package[:1] + package.replace('-', ' ').title().replace(' ', '')[1:] + '.js' -%}
+
 // Licensed under the MIT License
-// https://github.com/johndoe/my-package/blob/main/LICENSE
+// https://github.com/{{github}}/{{package}}/blob/main/LICENSE
 
 /* eslint-disable id-length */
 
-import {sumNumbers} from '../my-package/index.js';
+import {sumNumbers} from '../lib/{{packageFile}}';
 import test from 'ava';
 
 

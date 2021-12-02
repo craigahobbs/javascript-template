@@ -15,10 +15,9 @@
         "url": "https://github.com/johndoe"
     },
     "files": [
-        "index.js",
-        "src/my-package/**/*"
+        "lib/**/*"
     ],
     "scripts": {
-        "test": "ava -v 'src/tests/**/*.js'"
+        "test": "ava -v test/"
     }
 }

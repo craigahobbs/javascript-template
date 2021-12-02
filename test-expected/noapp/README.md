@@ -10,8 +10,10 @@ Coming soon!
 
 ## Development
 
-This project is developed using [javascript-build](https://github.com/craigahobbs/javascript-build#readme). It was started
-using [javascript-template](https://github.com/craigahobbs/javascript-template#readme) as follows:
+
+my-package is developed using [javascript-build](https://github.com/craigahobbs/javascript-build#readme).
+
+It was started using [javascript-template](https://github.com/craigahobbs/javascript-template#readme):
 
 ```
 template-specialize javascript-template/template/ my-package/ -k package my-package -k name 'John Doe' -k email 'johndoe@gmail.com' -k github 'johndoe' -k noapp 1

@@ -1,15 +1,24 @@
 {# Delete this utility file #}
 {% template_specialize_rename 'javascript-template.txt' %}
 
-{# Rename package source files #}
-{% set packageFile = package[:1] + package.replace('-', ' ').title().replace(' ', '')[1:] + '.js' -%}
-{% template_specialize_rename 'src/package-name/packageName.js', packageFile %}
-{% template_specialize_rename 'src/tests/testPackageName.js', 'test' + packageFile[:1].upper() + packageFile[1:] %}
-
-{# Delete the static directory (non-app) #}
+{# Library project? #}
 {% if noapp is defined and noapp %}
-  {% template_specialize_rename 'static' %}
-{% endif %}
 
-{# Rename package source directory #}
-{% template_specialize_rename 'src/package-name', package %}
+  {# Rename the package source and test files #}
+  {% set packageFile = package[:1] + package.replace('-', ' ').title().replace(' ', '')[1:] + '.js' -%}
+  {% template_specialize_rename 'lib/packageName.js', packageFile %}
+  {% template_specialize_rename 'test/testPackageName.js', 'test' + packageFile[:1].upper() + packageFile[1:] %}
+
+  {# Delete the application files #}
+  {% template_specialize_rename 'lib/app.js' %}
+  {% template_specialize_rename 'test/testApp.js' %}
+  {% template_specialize_rename 'static' %}
+
+{# Element Application project #}
+{% else %}
+
+  {# Delete the non-application files #}
+  {% template_specialize_rename 'lib/packageName.js' %}
+  {% template_specialize_rename 'test/testPackageName.js' %}
+
+{% endif %}

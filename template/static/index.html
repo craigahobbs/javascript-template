@@ -12,7 +12,8 @@
     <body>
     </body>
     <script type="module">
-        import {{'{'}}{{packageClass}}} from './{{package}}/index.js';
-        {{packageClass}}.run(window);
+        import {{'{'}}{{packageClass}}} from './lib/app.js';
+        const app = new {{packageClass}}(window);
+        app.run();
     </script>
 </html>

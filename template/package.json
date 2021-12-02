@@ -15,17 +15,13 @@
         "url": "https://github.com/{{github}}"
     },
     "files": [
-        "index.js",
-        "src/{{package}}/**/*"
+        "lib/**/*"
     ],
     "scripts": {
-        "test": "ava -v 'src/tests/**/*.js'"
+        "test": "ava -v test/"
     }{% if noapp is not defined or not noapp %},
     "dependencies": {
-        "element-model": "~1.0",
-        "markdown-model": "~1.1",
-        "schema-markdown": "~1.0",
-        "schema-markdown-doc": "~1.0"
+        "element-app": "~1.0"
     }
 {%- endif %}
 }
