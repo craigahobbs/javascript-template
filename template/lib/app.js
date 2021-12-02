@@ -1,4 +1,5 @@
-{% set packageClass = package.replace('-', ' ').title().replace(' ', '') -%}
+{% set packageClass = package.replace('-', ' ').title().replace(' ', '') %}
+{%- set packageLocal = package[:1] + package.replace('-', ' ').title().replace(' ', '')[1:] -%}
 
 // Licensed under the MIT License
 // https://github.com/{{github}}/{{package}}/blob/main/LICENSE
@@ -7,9 +8,9 @@ import {ElementApplication} from 'element-app/lib/app.js';
 
 
 // The application's hash parameter type model
-const {{packageClass}}HashTypes = `\
+const {{packageLocal}}HashTypes = `\
 #
-# The {{package}} application
+# This is the {{package}} application:
 #
 # [{{package}}](https://github.com/{{github}}/{{package}}#readme)
 #
@@ -25,10 +26,9 @@ struct {{packageClass}}
 
 
 /**
- * {{packageClass}} application
- *
- * {{packageClass}} up is an
- * [Element Application]{@link https://craigahobbs.github.io/element-app/module-lib_app.ElementApplication.html}.
+ * The {{packageClass}} application. The {{packageClass}} class extends the element-app
+ * [ElementApplication]{@link https://craigahobbs.github.io/element-app/module-lib_app.ElementApplication.html}
+ * class.
  *
  * @extends ElementApplication
  */
@@ -39,7 +39,7 @@ export class {{packageClass}} extends ElementApplication {
      * @param {Object} window - The web browser window object
      */
     constructor(window) {
-        super(window, '{{package}}', '{{packageClass}}', {{packageClass}}HashTypes);
+        super(window, '{{package}}', '{{packageClass}}', {{packageLocal}}HashTypes);
     }
 
     /**

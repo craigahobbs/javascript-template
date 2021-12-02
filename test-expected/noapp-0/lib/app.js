@@ -5,9 +5,9 @@ import {ElementApplication} from 'element-app/lib/app.js';
 
 
 // The application's hash parameter type model
-const MyPackageHashTypes = `\
+const myPackageHashTypes = `\
 #
-# The my-package application
+# This is the my-package application:
 #
 # [my-package](https://github.com/johndoe/my-package#readme)
 #
@@ -23,10 +23,9 @@ struct MyPackage
 
 
 /**
- * MyPackage application
- *
- * MyPackage up is an
- * [Element Application]{@link https://craigahobbs.github.io/element-app/module-lib_app.ElementApplication.html}.
+ * The MyPackage application. The MyPackage class extends the element-app
+ * [ElementApplication]{@link https://craigahobbs.github.io/element-app/module-lib_app.ElementApplication.html}
+ * class.
  *
  * @extends ElementApplication
  */
@@ -37,7 +36,7 @@ export class MyPackage extends ElementApplication {
      * @param {Object} window - The web browser window object
      */
     constructor(window) {
-        super(window, 'my-package', 'MyPackage', MyPackageHashTypes);
+        super(window, 'my-package', 'MyPackage', myPackageHashTypes);
     }
 
     /**
