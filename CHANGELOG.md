@@ -1,3 +1,7 @@
+## 2021-12-02
+
+- [7df963d](https://github.com/craigahobbs/javascript-template/commit/7df963d) - add schema-markdown-doc dependency
+
 ## 2021-12-01
 
 - [d68e412](https://github.com/craigahobbs/javascript-template/commit/d68e412) - update to use element-app
