@@ -22,10 +22,12 @@ test('MyPackage.main, help', (t) => {
     const {window} = new JSDOM();
     const app = new MyPackage(window);
     app.updateParams('help=1');
-    const result = ElementApplication.validateMain(app.main());
-    t.deepEqual(result, {
-        'elements': new UserTypeElements(app.params).getElements(app.hashTypes, app.hashType)
-    });
+    t.deepEqual(
+        ElementApplication.validateMain(app.main()),
+        {
+            'elements': new UserTypeElements(app.params).getElements(app.hashTypes, app.hashType)
+        }
+    );
 });
 
 
@@ -33,8 +35,10 @@ test('MyPackage.main', (t) => {
     const {window} = new JSDOM();
     const app = new MyPackage(window);
     app.updateParams('');
-    const result = ElementApplication.validateMain(app.main());
-    t.deepEqual(result, {
-        'elements': {'html': 'p', 'elem': {'text': 'Hello'}}
-    });
+    t.deepEqual(
+        ElementApplication.validateMain(app.main()),
+        {
+            'elements': {'html': 'p', 'elem': {'text': 'Hello'}}
+        }
+    );
 });
