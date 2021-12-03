@@ -14,12 +14,6 @@ $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-bui
 $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-build/main/jsdoc.json))
 $(eval $(call WGET, https://raw.githubusercontent.com/craigahobbs/javascript-build/main/.eslintrc.cjs))
 
-
-# Override defaults
-AVA_ARGS ?= test/
-C8_ARGS ?= --100 --allowExternal
-ESLINT_ARGS ?= lib/ test/
-JSDOC_ARGS ?= -c jsdoc.json -r README.md lib/
 {%- if noapp is not defined or not noapp %}
 
 
