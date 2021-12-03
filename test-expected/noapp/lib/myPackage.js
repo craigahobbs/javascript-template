@@ -1,6 +1,8 @@
 // Licensed under the MIT License
 // https://github.com/johndoe/my-package/blob/main/LICENSE
 
+/** @module lib/myPackage */
+
 
 /**
  * Sum an array of numbers

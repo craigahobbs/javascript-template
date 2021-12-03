@@ -1,5 +1,9 @@
+{% set packageVariable = package[:1] + package.replace('-', ' ').title().replace(' ', '')[1:] -%}
+
 // Licensed under the MIT License
 // https://github.com/{{github}}/{{package}}/blob/main/LICENSE
+
+/** @module lib/{{packageVariable}} */
 
 
 /**

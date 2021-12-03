@@ -1,5 +1,5 @@
 {% set packageClass = package.replace('-', ' ').title().replace(' ', '') %}
-{%- set packageLocal = package[:1] + package.replace('-', ' ').title().replace(' ', '')[1:] -%}
+{%- set packageVariable = package[:1] + package.replace('-', ' ').title().replace(' ', '')[1:] -%}
 
 // Licensed under the MIT License
 // https://github.com/{{github}}/{{package}}/blob/main/LICENSE
@@ -11,7 +11,7 @@ import {UserTypeElements} from 'schema-markdown-doc/lib/userTypeElements.js';
 
 
 // The application's hash parameter type model
-const {{packageLocal}}HashTypes = `\
+const {{packageVariable}}HashTypes = `\
 #
 # This is the {{package}} application:
 #
@@ -42,7 +42,7 @@ export class {{packageClass}} extends ElementApplication {
      * @param {Object} window - The web browser window object
      */
     constructor(window) {
-        super(window, '{{package}}', '{{packageClass}}', {{packageLocal}}HashTypes);
+        super(window, '{{package}}', '{{packageClass}}', {{packageVariable}}HashTypes);
     }
 
     /**
