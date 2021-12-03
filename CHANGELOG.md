@@ -1,5 +1,7 @@
 ## 2021-12-02
 
+- [fd35fd6](https://github.com/craigahobbs/javascript-template/commit/fd35fd6) - add noapp jsdoc module names
+
 - [c10e6b4](https://github.com/craigahobbs/javascript-template/commit/c10e6b4) - remove readme from app
 
 - [10df44b](https://github.com/craigahobbs/javascript-template/commit/10df44b) - schema-markdown-doc 1.1
