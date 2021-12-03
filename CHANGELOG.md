@@ -1,3 +1,7 @@
+## 2021-12-03
+
+- [b9608ae](https://github.com/craigahobbs/javascript-template/commit/b9608ae) - use validateMain to validate main results in app tests
+
 ## 2021-12-02
 
 - [fd35fd6](https://github.com/craigahobbs/javascript-template/commit/fd35fd6) - add noapp jsdoc module names
