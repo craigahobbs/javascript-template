@@ -1,3 +1,7 @@
+## 2022-02-01
+
+- [5ada67a](https://github.com/craigahobbs/javascript-template/commit/5ada67a) - update template for 2022
+
 ## 2021-12-03
 
 - [b9608ae](https://github.com/craigahobbs/javascript-template/commit/b9608ae) - use validateMain to validate main results in app tests
