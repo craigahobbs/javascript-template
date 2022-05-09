@@ -8,7 +8,8 @@
 import {ElementApplication} from 'element-app/lib/app.js';
 import {JSDOM} from 'jsdom/lib/api.js';
 import {{'{'}}{{packageClass}}} from '../lib/app.js';
-import {UserTypeElements} from 'schema-markdown-doc/lib/userTypeElements.js';
+import {encodeQueryString} from 'schema-markdown/lib/encode.js';
+import {schemaMarkdownDoc} from 'schema-markdown-doc/lib/schemaMarkdownDoc.js';
 import test from 'ava';
 
 
@@ -27,7 +28,7 @@ test('{{packageClass}}.main, help', (t) => {
     t.deepEqual(
         ElementApplication.validateMain(app.main()),
         {
-            'elements': new UserTypeElements(app.params).getElements(app.hashTypes, app.hashType)
+            'elements': schemaMarkdownDoc(app.hashTypes, app.hashType, {'params': encodeQueryString(app.params)})
         }
     );
 });

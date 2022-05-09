@@ -4,7 +4,8 @@
 /** @module lib/app */
 
 import {ElementApplication} from 'element-app/lib/app.js';
-import {UserTypeElements} from 'schema-markdown-doc/lib/userTypeElements.js';
+import {encodeQueryString} from 'schema-markdown/lib/encode.js';
+import {schemaMarkdownDoc} from 'schema-markdown-doc/lib/schemaMarkdownDoc.js';
 
 
 // The application's hash parameter type model
@@ -53,7 +54,7 @@ export class MyPackage extends ElementApplication {
         // Help?
         if ('help' in this.params) {
             return {
-                'elements': new UserTypeElements(this.params).getElements(this.hashTypes, this.hashType)
+                'elements': schemaMarkdownDoc(this.hashTypes, this.hashType, {'params': encodeQueryString(this.params)})
             };
         }
 
