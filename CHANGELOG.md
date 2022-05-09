@@ -1,4 +1,10 @@
+## 2022-05-09
+
+- [0dc61c4](https://github.com/craigahobbs/javascript-template/commit/0dc61c4) - schema-markdown-doc 1.4
+
 ## 2022-02-01
+
+- [0f20059](https://github.com/craigahobbs/javascript-template/commit/0f20059) - schema-markdown-doc 1.3
 
 - [5ada67a](https://github.com/craigahobbs/javascript-template/commit/5ada67a) - update template for 2022
 
