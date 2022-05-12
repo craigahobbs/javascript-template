@@ -1,3 +1,7 @@
+## 2022-05-12
+
+- [aac635f](https://github.com/craigahobbs/javascript-template/commit/aac635f) - schema-markdown-doc 1.4.3
+
 ## 2022-05-09
 
 - [0dc61c4](https://github.com/craigahobbs/javascript-template/commit/0dc61c4) - schema-markdown-doc 1.4
