@@ -1,3 +1,7 @@
+## 2022-05-18
+
+- [ba6269c](https://github.com/craigahobbs/javascript-template/commit/ba6269c) - remove element-app
+
 ## 2022-05-12
 
 - [aac635f](https://github.com/craigahobbs/javascript-template/commit/aac635f) - schema-markdown-doc 1.4.3
