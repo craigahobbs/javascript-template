@@ -4,7 +4,7 @@
 [template-specialize](https://pypi.org/project/template-specialize/).
 Generated projects have the following functionality:
 
-- lightweight, client-rendered web applications using [element-app](https://github.com/craigahobbs/element-app#readme)
+- lightweight, client-rendered web applications
 
 - complete build/development experience using [javascript-build](https://github.com/craigahobbs/javascript-build#readme)
 
