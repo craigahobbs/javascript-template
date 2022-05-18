@@ -51,7 +51,6 @@ app: build/npm.build
 	cp -R \
 		static/* \
 		lib \
-		node_modules/element-app \
 		node_modules/element-model \
 		node_modules/markdown-model \
 		node_modules/markdown-model/static/markdown-model.css \

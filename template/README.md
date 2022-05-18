@@ -14,12 +14,7 @@ Coming soon!
 
 ## Development
 
-{% if noapp is not defined or not noapp -%}
-{{package}} is an [Element Application](https://github.com/craigahobbs/element-app#readme).
-It is developed using [javascript-build](https://github.com/craigahobbs/javascript-build#readme)
-{%- else -%}
 {{package}} is developed using [javascript-build](https://github.com/craigahobbs/javascript-build#readme)
-{%- endif %}
 and it was started using [javascript-template](https://github.com/craigahobbs/javascript-template#readme):
 
 ```

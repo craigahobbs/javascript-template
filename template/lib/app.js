@@ -6,13 +6,15 @@
 
 /** @module lib/app */
 
-import {ElementApplication} from 'element-app/lib/app.js';
-import {encodeQueryString} from 'schema-markdown/lib/encode.js';
+import {decodeQueryString, encodeQueryString} from 'schema-markdown/lib/encode.js';
+import {SchemaMarkdownParser} from 'schema-markdown/lib/parser.js';
+import {renderElements} from 'element-model/lib/elementModel.js';
 import {schemaMarkdownDoc} from 'schema-markdown-doc/lib/schemaMarkdownDoc.js';
+import {validateType} from 'schema-markdown/lib/schema.js';
 
 
 // The application's hash parameter type model
-const {{packageVariable}}HashTypes = `\
+const {{packageVariable}}TypesSmd = `\
 #
 # This is the {{package}} application:
 #
@@ -27,42 +29,117 @@ struct {{packageClass}}
     # Display the application's hash parameter documentation
     optional int(== 1) help
 `;
+const {{packageVariable}}Types = new SchemaMarkdownParser({{packageVariable}}TypesSmd).types;
 
 
 /**
- * The {{packageClass}} application. The {{packageClass}} class extends the element-app
- * [ElementApplication]{@link https://craigahobbs.github.io/element-app/module-lib_app.ElementApplication.html}
- * class.
+ * The {{packageClass}} application
  *
- * @extends ElementApplication
+ * @property {Object} window - The web browser window object
+ * @property {?Object} params - The validated hash parameters object
  */
-export class {{packageClass}} extends ElementApplication {
+export class {{packageClass}} {
     /**
      * Create an application instance
      *
      * @param {Object} window - The web browser window object
      */
     constructor(window) {
-        super(window, '{{package}}', '{{packageClass}}', {{packageVariable}}HashTypes);
+        this.window = window;
+        this.params = null;
     }
 
     /**
-     * The [Element Application main entry point]{@link
-     * https://craigahobbs.github.io/element-app/module-lib_app.ElementApplication.html#main}.
+     * Run the application. This method calls render and subscribes to any hash parameter changes to
+     * re-render on any hash parameter change.
+     */
+    run() {
+        this.render();
+        this.window.addEventListener('hashchange', () => this.render(), false);
+    }
+
+    /**
+     * Render the application
+     */
+    render() {
+        // Parse the hash parameters and render the application element model
+        let result;
+        let isError = false;
+        try {
+            // Validate hash parameters
+            const paramsPrev = this.params;
+            this.updateParams();
+
+            // Skip the render if the page params haven't changed
+            if (paramsPrev !== null && JSON.stringify(paramsPrev) === JSON.stringify(this.params)) {
+                return;
+            }
+
+            // Call the application main and validate the result
+            result = this.main();
+        } catch ({message}) {
+            result = {
+                'title': '{{packageClass}}',
+                'elements': {'html': 'p', 'elem': {'text': `Error: ${message}`}}
+            };
+            isError = true;
+        }
+
+        // Set the window title
+        this.window.document.title = result.title;
+
+        // Render the element model
+        renderElements(this.window.document.body, result.elements);
+
+        // If there is a URL hash ID, re-navigate to go there since it was just rendered. After the
+        // first render, re-render is short-circuited by the unchanged hash param check above.
+        if (!isError && getHashID(this.window.location.hash) !== null) {
+            this.window.location.href = this.window.location.hash;
+        }
+    }
+
+    /**
+     * Parse and validate the hash parameters
      *
-     * @override
-     * @returns {Object} [MainResult]{@link https://craigahobbs.github.io/element-app/module-lib_app.html#~MainResult}
+     * @param {?string} paramString - Optional parameter string for testing
+     */
+    updateParams(paramString = null) {
+        // Clear, then validate the hash parameters (may throw)
+        this.params = null;
+
+        // Decode the params string
+        const params = decodeQueryString(paramString !== null ? paramString : this.window.location.hash.slice(1));
+
+        // Validate the params
+        this.params = validateType({{packageVariable}}Types, '{{packageClass}}', params);
+    }
+
+    /**
+     * The {{packageClass}} application main entry point
+     *
+     * @returns {Object}
      */
     main() {
         // Help?
         if ('help' in this.params) {
             return {
-                'elements': schemaMarkdownDoc(this.hashTypes, this.hashType, {'params': encodeQueryString(this.params)})
+                'title': '{{packageClass}}',
+                'elements': schemaMarkdownDoc({{packageVariable}}Types, '{{packageClass}}', {'params': encodeQueryString(this.params)})
             };
         }
 
         return {
+            'title': 'Hello',
             'elements': {'html': 'p', 'elem': {'text': 'Hello'}}
         };
     }
 }
+
+
+// Get a URL's hash ID
+export function getHashID(url) {
+    const matchId = url.match(rHashId);
+    return matchId !== null ? matchId[1] : null;
+}
+
+const rHashId = /[#&]([^=]+)$/;
