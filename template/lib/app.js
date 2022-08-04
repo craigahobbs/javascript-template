@@ -74,15 +74,17 @@ export class {{packageClass}} {
             if (paramsPrev !== null && JSON.stringify(paramsPrev) === JSON.stringify(this.params)) {
                 return;
             }
-
-            // Call the application main and validate the result
-            result = this.main();
         } catch ({message}) {
             result = {
                 'title': '{{packageClass}}',
                 'elements': {'html': 'p', 'elem': {'text': `Error: ${message}`}}
             };
             isError = true;
+        }
+
+        // Call the application main and validate the result
+        if (!isError) {
+            result = this.main();
         }
 
         // Set the window title

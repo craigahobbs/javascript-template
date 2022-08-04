@@ -14,8 +14,8 @@ Coming soon!
 
 ## Development
 
-{{package}} is developed using [javascript-build](https://github.com/craigahobbs/javascript-build#readme)
-and it was started using [javascript-template](https://github.com/craigahobbs/javascript-template#readme):
+This package is developed using [javascript-build](https://github.com/craigahobbs/javascript-build#readme).
+It was started using [javascript-template](https://github.com/craigahobbs/javascript-template#readme) as follows:
 
 ```
 template-specialize javascript-template/template/ {{package}}/ -k package {{package}} -k name '{{name}}' -k email '{{email}}' -k github '{{github}}'{% if noapp is defined and noapp %} -k noapp 1{% endif %}

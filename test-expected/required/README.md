@@ -10,8 +10,8 @@ Coming soon!
 
 ## Development
 
-my-package is developed using [javascript-build](https://github.com/craigahobbs/javascript-build#readme)
-and it was started using [javascript-template](https://github.com/craigahobbs/javascript-template#readme):
+This package is developed using [javascript-build](https://github.com/craigahobbs/javascript-build#readme).
+It was started using [javascript-template](https://github.com/craigahobbs/javascript-template#readme) as follows:
 
 ```
 template-specialize javascript-template/template/ my-package/ -k package my-package -k name 'John Doe' -k email 'johndoe@gmail.com' -k github 'johndoe'
