@@ -1,3 +1,7 @@
+## 2022-08-04
+
+- [265199f](https://github.com/craigahobbs/javascript-template/commit/265199f) - template cleanup
+
 ## 2022-05-18
 
 - [ba6269c](https://github.com/craigahobbs/javascript-template/commit/ba6269c) - remove element-app
