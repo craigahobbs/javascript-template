@@ -111,6 +111,7 @@ The project structure is as follows:
 |-- test
 |   `-- testApp.js
 `-- static
+    |-- app.css
     `-- index.html
 ```
 
