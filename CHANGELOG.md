@@ -1,3 +1,7 @@
+## 2022-08-19
+
+- [75af777](https://github.com/craigahobbs/javascript-template/commit/75af777) - schema-markdown 1.2
+
 ## 2022-08-18
 
 - [960a2f7](https://github.com/craigahobbs/javascript-template/commit/960a2f7) - add template static/app.css
