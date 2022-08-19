@@ -7,14 +7,14 @@
 /** @module lib/app */
 
 import {decodeQueryString, encodeQueryString} from 'schema-markdown/lib/encode.js';
-import {SchemaMarkdownParser} from 'schema-markdown/lib/parser.js';
+import {parseSchemaMarkdown} from 'schema-markdown/lib/parser.js';
 import {renderElements} from 'element-model/lib/elementModel.js';
 import {schemaMarkdownDoc} from 'schema-markdown-doc/lib/schemaMarkdownDoc.js';
 import {validateType} from 'schema-markdown/lib/schema.js';
 
 
 // The application's hash parameter type model
-const {{packageVariable}}TypesSmd = `\
+const {{packageVariable}}Types = parseSchemaMarkdown(`\
 #
 # This is the {{package}} application:
 #
@@ -28,8 +28,7 @@ struct {{packageClass}}
 
     # Display the application's hash parameter documentation
     optional int(== 1) help
-`;
-const {{packageVariable}}Types = new SchemaMarkdownParser({{packageVariable}}TypesSmd).types;
+`);
 
 
 /**
