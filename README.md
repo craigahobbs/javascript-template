@@ -1,26 +1,32 @@
 # javascript-template
 
 **javascript-template** is a JavaScript project template for use with
-[template-specialize](https://pypi.org/project/template-specialize/).
+[template-specialize](https://github.com/craigahobbs/template-specialize#readme).
 Generated projects have the following functionality:
 
-- lightweight, client-rendered web applications
+- creates a new JavaScript package project
 
-- complete build/development experience using [javascript-build](https://github.com/craigahobbs/javascript-build#readme)
+  - optional lightweight, client-rendered web application
 
-- API documentation with [jsdoc](https://www.npmjs.com/package/jsdoc)
+- development experience using [javascript-build](https://github.com/craigahobbs/javascript-build#readme)
 
-- ready to upload to [npm](https://www.npmjs.com/)
+- runs unit tests with [ava](https://github.com/avajs/ava#readme)
 
-- a license file ([MIT License](https://choosealicense.com/licenses/mit/))
+- code coverage using [c8](https://github.com/bcoe/c8#readme)
 
-- 100% unit-test code coverage, enforced
+  - 100% code coverage enforced (configurable)
+
+- generates package documentation with [jsdoc](https://github.com/jsdoc/jsdoc#readme)
+
+- package ready to upload to [npm](https://www.npmjs.com/)
+
+- contains a license file ([MIT License](https://choosealicense.com/licenses/mit/))
 
 
 ## Create a New JavaScript Project
 
 To create a new JavaScript project, clone this repository and render the template using
-[template-specialize](https://pypi.org/project/template-specialize/). For example:
+[template-specialize](https://github.com/craigahobbs/template-specialize#readme). For example:
 
 ~~~
 template-specialize javascript-template/template/ my-package/ \
@@ -52,7 +58,7 @@ analysis, building API documentation, publishing API documentation to GitHub Pag
 updating a changelog file, and publishing the package to npm.
 
 Here are a few basic commands to help you get started. For more detailed documentation, see the
-[javascript-build documentation](https://github.com/craigahobbs/javascript-build#readme).
+[javascript-build documentation](https://github.com/craigahobbs/javascript-build#contents).
 
 Before any commit, run the **make commit** command to run all tests:
 
