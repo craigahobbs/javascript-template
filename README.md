@@ -2,7 +2,6 @@
 
 **javascript-template** is a JavaScript project template for use with
 [template-specialize](https://github.com/craigahobbs/template-specialize#readme).
-Generated projects have the following functionality:
 
 - creates a new JavaScript package project
 
