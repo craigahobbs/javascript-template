@@ -3,23 +3,16 @@
 **javascript-template** is a JavaScript project template for use with
 [template-specialize](https://github.com/craigahobbs/template-specialize#readme).
 
-- creates a new JavaScript package project
-
-  - optional lightweight, client-rendered web application
-
-- development experience using [javascript-build](https://github.com/craigahobbs/javascript-build#readme)
-
-- runs unit tests with [ava](https://github.com/avajs/ava#readme)
-
-- code coverage using [c8](https://github.com/bcoe/c8#readme)
-
+- Creates a new JavaScript package project
+  - Optional lightweight, client-rendered web application
+- Development experience using [javascript-build](https://github.com/craigahobbs/javascript-build#readme)
+- Run unit tests with [AVA](https://www.npmjs.com/package/ava)
+- Code coverage using [c8](https://www.npmjs.com/package/c8)
   - 100% code coverage enforced (configurable)
-
-- generates package documentation with [jsdoc](https://github.com/jsdoc/jsdoc#readme)
-
-- package ready to upload to [npm](https://www.npmjs.com/)
-
-- contains a license file ([MIT License](https://choosealicense.com/licenses/mit/))
+- Static code analysis using [eslint](https://www.npmjs.com/package/eslint)
+- Package documentation using [jsdoc](https://www.npmjs.com/package/jsdoc)
+- Publish the package to [npm](https://www.npmjs.com/)
+- Publish application or documentation to [GitHub Pages](https://pages.github.com/)
 
 
 ## Create a New JavaScript Project
