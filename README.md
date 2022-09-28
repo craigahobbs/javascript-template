@@ -22,13 +22,13 @@ Generated projects have the following functionality:
 To create a new JavaScript project, clone this repository and render the template using
 [template-specialize](https://pypi.org/project/template-specialize/). For example:
 
-```
+~~~
 template-specialize javascript-template/template/ my-package/ \
     -k package "my-package" \
     -k name "John Doe" \
     -k email "johndoe@gmail.com" \
     -k github "johndoe"
-```
+~~~
 
 The template defines the following template variables:
 
@@ -56,52 +56,52 @@ Here are a few basic commands to help you get started. For more detailed documen
 
 Before any commit, run the **make commit** command to run all tests:
 
-```
+~~~
 make commit
-```
+~~~
 
 To run unit tests, use the **make test** command:
 
-```
+~~~
 make test
-```
+~~~
 
 To run unit tests on a specific unit test, use the **TEST** argument:
 
-```
+~~~
 make test TEST="test name"
-```
+~~~
 
 To run unit tests with code coverage, use the **make cover** command:
 
-```
+~~~
 make cover
-```
+~~~
 
 To publish the application or API documentation to [GitHub Pages](https://pages.github.com/), use the **make gh-pages** command:
 
-```
+~~~
 make gh-pages
-```
+~~~
 
 To create or update a changelog file, use the **make changelog** command:
 
-```
+~~~
 make changelog
-```
+~~~
 
 Finally, to publish to [npm](https://www.npmjs.com/), use the **make publish** command:
 
-```
+~~~
 make publish
-```
+~~~
 
 
 ## Project Structure
 
 The project structure is as follows:
 
-```
+~~~
 |-- LICENSE
 |-- Makefile
 |-- README.md
@@ -113,11 +113,11 @@ The project structure is as follows:
 `-- static
     |-- app.css
     `-- index.html
-```
+~~~
 
 For "noapp" projects the structure is:
 
-```
+~~~
 |-- LICENSE
 |-- Makefile
 |-- README.md
@@ -126,4 +126,4 @@ For "noapp" projects the structure is:
 |   `-- packageName.js
 `-- test
     `-- testPackageName.js
-```
+~~~
