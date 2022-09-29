@@ -1,7 +1,7 @@
 # javascript-template
 
 **javascript-template** is a JavaScript project template for use with
-[template-specialize](https://github.com/craigahobbs/template-specialize#readme).
+[template-specialize](https://pypi.org/project/template-specialize/).
 
 - Creates a new JavaScript package project
   - Optional lightweight, client-rendered web application
@@ -18,7 +18,7 @@
 ## Create a New JavaScript Project
 
 To create a new JavaScript project, clone this repository and render the template using
-[template-specialize](https://github.com/craigahobbs/template-specialize#readme). For example:
+[template-specialize](https://pypi.org/project/template-specialize/). For example:
 
 ~~~
 template-specialize javascript-template/template/ my-package/ \
