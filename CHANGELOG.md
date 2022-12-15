@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-12-15
+
+- [441ddcf](https://github.com/craigahobbs/javascript-template/commit/441ddcf) - add links section to template readme
+
 ## 2022-08-19
 
 - [75af777](https://github.com/craigahobbs/javascript-template/commit/75af777) - schema-markdown 1.2
