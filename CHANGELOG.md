@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-01-27
+
+- [99689ad](https://github.com/craigahobbs/javascript-template/commit/99689ad) - fix application tests
+
 ## 2022-12-15
 
 - [441ddcf](https://github.com/craigahobbs/javascript-template/commit/441ddcf) - add links section to template readme
