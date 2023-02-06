@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-02-06
+
+- [7906903](https://github.com/craigahobbs/javascript-template/commit/7906903) - use jsonStringifySortKeys
+
 ## 2023-01-27
 
 - [99689ad](https://github.com/craigahobbs/javascript-template/commit/99689ad) - fix application tests
