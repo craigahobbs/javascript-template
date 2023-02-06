@@ -6,7 +6,7 @@
 
 /** @module lib/app */
 
-import {decodeQueryString, encodeQueryString} from 'schema-markdown/lib/encode.js';
+import {decodeQueryString, encodeQueryString, jsonStringifySortKeys} from 'schema-markdown/lib/encode.js';
 import {parseSchemaMarkdown} from 'schema-markdown/lib/parser.js';
 import {renderElements} from 'element-model/lib/elementModel.js';
 import {schemaMarkdownDoc} from 'schema-markdown-doc/lib/schemaMarkdownDoc.js';
@@ -70,7 +70,7 @@ export class {{packageClass}} {
             this.updateParams();
 
             // Skip the render if the page params haven't changed
-            if (paramsPrev !== null && JSON.stringify(paramsPrev) === JSON.stringify(this.params)) {
+            if (paramsPrev !== null && jsonStringifySortKeys(paramsPrev) === jsonStringifySortKeys(this.params)) {
                 return;
             }
         } catch ({message}) {
