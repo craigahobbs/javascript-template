@@ -19,6 +19,10 @@ clean:
 	rm -rf build/ test-actual/
 
 
+.PHONY: gh-pages
+gh-pages:
+
+
 .PHONY: superclean
 superclean: clean
 
