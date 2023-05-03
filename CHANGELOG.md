@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-05-03
+
+- [9d3986b](https://github.com/craigahobbs/javascript-template/commit/9d3986b) - markdown-model 1.8
+
 ## 2023-02-06
 
 - [7906903](https://github.com/craigahobbs/javascript-template/commit/7906903) - use jsonStringifySortKeys
