@@ -3,82 +3,81 @@
 // Licensed under the MIT License
 // https://github.com/{{github}}/{{package}}/blob/main/LICENSE
 
-/* eslint-disable id-length */
-
 import {JSDOM} from 'jsdom/lib/api.js';
 import {{'{'}}{{packageClass}}} from '../lib/app.js';
-import test from 'ava';
+import {strict as assert} from 'node:assert';
+import test from 'node:test';
 
 
-test('{{packageClass}}, constructor', (t) => {
+test('{{packageClass}}, constructor', () => {
     const {window} = new JSDOM();
     const app = new {{packageClass}}(window);
-    t.is(app.window, window);
-    t.is(app.params, null);
+    assert.equal(app.window, window);
+    assert.equal(app.params, null);
 });
 
 
-test('{{packageClass}}.run', (t) => {
+test('{{packageClass}}.run', () => {
     const {window} = new JSDOM();
     const app = new {{packageClass}}(window);
     app.run();
-    t.deepEqual(app.params, {});
-    t.is(window.document.title, 'Hello');
-    t.is(window.document.body.innerHTML, '<p>Hello</p>');
+    assert.deepEqual(app.params, {});
+    assert.equal(window.document.title, 'Hello');
+    assert.equal(window.document.body.innerHTML, '<p>Hello</p>');
 });
 
 
-test('{{packageClass}}.render', (t) => {
+test('{{packageClass}}.render', () => {
     const {window} = new JSDOM();
     const app = new {{packageClass}}(window);
     app.render();
-    t.deepEqual(app.params, {});
-    t.is(window.document.title, 'Hello');
-    t.is(window.document.body.innerHTML, '<p>Hello</p>');
+    assert.deepEqual(app.params, {});
+    assert.equal(window.document.title, 'Hello');
+    assert.equal(window.document.body.innerHTML, '<p>Hello</p>');
 
     // Re-render with same args and verify render short-circuit
     app.render();
-    t.is(window.document.title, 'Hello');
-    t.is(window.document.body.innerHTML, '<p>Hello</p>');
+    assert.equal(window.document.title, 'Hello');
+    assert.equal(window.document.body.innerHTML, '<p>Hello</p>');
 });
 
 
-test('{{packageClass}}.render, hash ID', (t) => {
+test('{{packageClass}}.render, hash ID', () => {
     const {window} = new JSDOM();
     window.location.hash = '#hash-id';
     const app = new {{packageClass}}(window);
     app.render();
-    t.deepEqual(app.params, {});
-    t.is(window.document.title, 'Hello');
-    t.is(window.document.body.innerHTML, '<p>Hello</p>');
+    assert.deepEqual(app.params, {});
+    assert.equal(window.document.title, 'Hello');
+    assert.equal(window.document.body.innerHTML, '<p>Hello</p>');
 
     // Re-render with same args and verify render short-circuit
     app.render();
-    t.is(window.document.title, 'Hello');
-    t.is(window.document.body.innerHTML, '<p>Hello</p>');
+    assert.equal(window.document.title, 'Hello');
+    assert.equal(window.document.body.innerHTML, '<p>Hello</p>');
 });
 
 
-test('{{packageClass}}.render, hash parameter error', (t) => {
+test('{{packageClass}}.render, hash parameter error', () => {
     const {window} = new JSDOM();
     window.location.hash = '#foo=bar';
     const app = new {{packageClass}}(window);
     app.render();
-    t.is(app.window, window);
-    t.is(app.params, null);
-    t.is(window.document.title, 'MyPackage');
-    t.is(window.document.body.innerHTML, "<p>Error: Unknown member 'foo'</p>");
+    assert.equal(app.window, window);
+    assert.equal(app.params, null);
+    assert.equal(window.document.title, 'MyPackage');
+    assert.equal(window.document.body.innerHTML, "<p>Error: Unknown member 'foo'</p>");
 });
 
 
-test('{{packageClass}}.main, help', (t) => {
+test('{{packageClass}}.main, help', () => {
     const {window} = new JSDOM();
     const app = new {{packageClass}}(window);
     app.updateParams('help=1');
     const result = app.main();
-    t.is(result.elements[0][0].html, 'h1');
+    assert.equal(result.elements[0][0].html, 'h1');
     result.elements[0] = '<helpElements>';
-    t.deepEqual(
+    assert.deepEqual(
         result,
         {
             'title': '{{packageClass}}',
@@ -91,11 +90,11 @@ test('{{packageClass}}.main, help', (t) => {
 });
 
 
-test('{{packageClass}}.main', (t) => {
+test('{{packageClass}}.main', () => {
     const {window} = new JSDOM();
     const app = new {{packageClass}}(window);
     app.updateParams('');
-    t.deepEqual(
+    assert.deepEqual(
         app.main(),
         {
             'title': 'Hello',

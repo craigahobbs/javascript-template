@@ -1,17 +1,16 @@
 // Licensed under the MIT License
 // https://github.com/johndoe/my-package/blob/main/LICENSE
 
-/* eslint-disable id-length */
-
+import {strict as assert} from 'node:assert';
 import {sumNumbers} from '../lib/myPackage.js';
-import test from 'ava';
+import test from 'node:test';
 
 
-test('sumNumbers', (t) => {
-    t.is(sumNumbers([1, 2, 3]), 6);
+test('sumNumbers', () => {
+    assert.equal(sumNumbers([1, 2, 3]), 6);
 });
 
 
-test('sumNumbers, empty', (t) => {
-    t.is(sumNumbers([]), 0);
+test('sumNumbers, empty', () => {
+    assert.equal(sumNumbers([]), 0);
 });
