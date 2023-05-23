@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-05-23
+
+- [1f01c89](https://github.com/craigahobbs/javascript-template/commit/1f01c89) - use node --test for unit testing
+
 ## 2023-05-03
 
 - [9d3986b](https://github.com/craigahobbs/javascript-template/commit/9d3986b) - markdown-model 1.8
