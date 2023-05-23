@@ -18,7 +18,7 @@
         "lib/**/*"
     ],
     "scripts": {
-        "test": "ava -v test/"
+        "test": "node --test test/"
     }{% if noapp is not defined or not noapp %},
     "dependencies": {
         "element-model": "~1.1",
