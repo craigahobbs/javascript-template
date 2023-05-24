@@ -6,7 +6,7 @@
 - Creates a new JavaScript package project
   - Optional lightweight, client-rendered web application
 - Development experience using [javascript-build](https://github.com/craigahobbs/javascript-build#readme)
-- Run unit tests with [AVA](https://www.npmjs.com/package/ava)
+- Run unit tests with [node --test](https://nodejs.org/api/test.html)
 - Code coverage using [c8](https://www.npmjs.com/package/c8)
   - 100% code coverage enforced (configurable)
 - Static code analysis using [eslint](https://www.npmjs.com/package/eslint)
