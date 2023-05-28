@@ -24,5 +24,8 @@
         "element-model": "~1.1",
         "schema-markdown": "~1.2",
         "schema-markdown-doc": "~1.6"
+    },
+    "devDependencies": {
+        "jsdom": "~22.0"
     }
 }
