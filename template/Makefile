@@ -23,6 +23,9 @@ GHPAGES_SRC := build/app/
 
 
 # Include javascript-build
+{%- if noapp is not defined or not noapp %}
+USE_JSDOM := 1
+{%- endif %}
 include Makefile.base
 
 
