@@ -1,5 +1,17 @@
 # Changelog
 
+## 2023-09-29
+
+- [23af1ac](https://github.com/craigahobbs/javascript-template/commit/23af1ac) - cleanup template makefile
+
+- [2cec932](https://github.com/craigahobbs/javascript-template/commit/2cec932) - update javascript-build
+
+- [612fe5b](https://github.com/craigahobbs/javascript-template/commit/612fe5b) - update javascript-build
+
+- [942d882](https://github.com/craigahobbs/javascript-template/commit/942d882) - update readme
+
+- [5e6e823](https://github.com/craigahobbs/javascript-template/commit/5e6e823) - update package.json
+
 ## 2023-05-23
 
 - [1f01c89](https://github.com/craigahobbs/javascript-template/commit/1f01c89) - use node --test for unit testing
