@@ -32,12 +32,11 @@ help:
 	@echo '            [app|run|'
 
 
-.PHONY: run
+.PHONY: app run
 run: app
 	python3 -m http.server --directory build/app
 
 
-.PHONY: app
 commit: app
 app: build/npm.build
 	rm -rf build/app/
