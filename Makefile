@@ -27,6 +27,10 @@ gh-pages:
 superclean: clean
 
 
+# Helper to edit files with sed
+SED_FILE = if [ -f $(strip $(2)) ]; then sed -E $(strip $(1)) $(strip $(2)) >> $(strip $(2)).tmp && mv $(strip $(2)).tmp $(strip $(2)); fi
+
+
 # Test rule function - name, template args
 define TEST_RULE
 test: test-$(strip $(1))
@@ -36,6 +40,7 @@ test-$(strip $(1)): build/venv.build
 	@echo 'Testing "$(strip $(1))"...'
 	rm -rf test-actual/$(strip $(1))/
 	build/venv/bin/template-specialize template/ test-actual/$(strip $(1))/ $(strip $(2))
+	$(call SED_FILE, 's/[0-9]{4}(,? John Doe)/YYYY\1/g', test-actual/$(strip $(1))/LICENSE)
 	diff -r test-actual/$(strip $(1))/ test-expected/$(strip $(1))/
 	$$(MAKE) $(MAKEJ) -C test-actual/$(strip $(1))/ commit
 	rm -rf test-actual/$(strip $(1))/
