@@ -1,5 +1,9 @@
 # Changelog
 
+## 2023-12-01
+
+- [1994fcf](https://github.com/craigahobbs/javascript-template/commit/1994fcf) - use current year instead of a hard-coded year
+
 ## 2023-09-29
 
 - [23af1ac](https://github.com/craigahobbs/javascript-template/commit/23af1ac) - cleanup template makefile
