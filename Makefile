@@ -39,7 +39,7 @@ test: test-$(strip $(1))
 test-$(strip $(1)): build/venv.build
 	@echo 'Testing "$(strip $(1))"...'
 	rm -rf test-actual/$(strip $(1))/
-	build/venv/bin/template-specialize template/ test-actual/$(strip $(1))/ $(strip $(2))
+	build/venv/$$(VENV_BIN)/template-specialize template/ test-actual/$(strip $(1))/ $(strip $(2))
 	$(call SED_FILE, 's/[0-9]{4}(,? John Doe)/YYYY\1/g', test-actual/$(strip $(1))/LICENSE)
 	diff -r test-actual/$(strip $(1))/ test-expected/$(strip $(1))/
 	$$(MAKE) $(MAKEJ) -C test-actual/$(strip $(1))/ commit
@@ -65,11 +65,19 @@ $(eval $(call TEST_RULE, noapp-0, \
 
 .PHONY: changelog
 changelog: build/venv.build
-	build/venv/bin/simple-git-changelog
+	build/venv/$(VENV_BIN)/simple-git-changelog
 
 
 build/venv.build:
-	python3 -m venv build/venv
-	build/venv/bin/pip -q install --progress-bar off -U pip setuptools
-	build/venv/bin/pip -q install --progress-bar off simple-git-changelog template-specialize
+	python3 -m venv --upgrade-deps build/venv
+	build/venv/$(VENV_BIN)/pip -q install --progress-bar off simple-git-changelog template-specialize
 	touch $@
+
+
+# Windows support
+VENV_BIN := bin
+ifeq '$(OS)' 'Windows_NT'
+ifeq ($(shell python3 -c "import sysconfig; print(sysconfig.get_preferred_scheme('user'))"),nt_user)
+VENV_BIN := Scripts
+endif
+endif
