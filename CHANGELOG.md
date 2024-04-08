@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024-04-08
+
+- [6e89f48](https://github.com/craigahobbs/javascript-template/commit/6e89f48) - eslint 9.0
+
 ## 2023-12-01
 
 - [1994fcf](https://github.com/craigahobbs/javascript-template/commit/1994fcf) - use current year instead of a hard-coded year
