@@ -1,5 +1,11 @@
 # Changelog
 
+## 2024-09-23
+
+- [ea437ac](https://github.com/craigahobbs/javascript-template/commit/ea437ac) - tweak spacing
+
+- [3a8bc14](https://github.com/craigahobbs/javascript-template/commit/3a8bc14) - update javascript-build download
+
 ## 2024-04-08
 
 - [6e89f48](https://github.com/craigahobbs/javascript-template/commit/6e89f48) - eslint 9.0
