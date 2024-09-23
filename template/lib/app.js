@@ -48,6 +48,7 @@ export class {{packageClass}} {
         this.params = null;
     }
 
+
     /**
      * Run the application. This method calls render and subscribes to any hash parameter changes to
      * re-render on any hash parameter change.
@@ -56,6 +57,7 @@ export class {{packageClass}} {
         this.render();
         this.window.addEventListener('hashchange', () => this.render(), false);
     }
+
 
     /**
      * Render the application
@@ -99,6 +101,7 @@ export class {{packageClass}} {
         }
     }
 
+
     /**
      * Parse and validate the hash parameters
      *
@@ -114,6 +117,7 @@ export class {{packageClass}} {
         // Validate the params
         this.params = validateType({{packageVariable}}Types, '{{packageClass}}', params);
     }
+
 
     /**
      * The {{packageClass}} application main entry point
