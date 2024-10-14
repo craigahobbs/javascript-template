@@ -127,9 +127,18 @@ export class {{packageClass}} {
     main() {
         // Help?
         if ('help' in this.params) {
+            const markdownOptions = {};
+            /* c8 ignore next 3 */
+            if (this.window.navigator.clipboard) {
+                markdownOptions.copyFn = (text) => this.window.navigator.clipboard.writeText(text);
+            }
+            const schemaMarkdownDocOptions = {
+                'params': encodeQueryString(this.params),
+                markdownOptions
+            };
             return {
                 'title': '{{packageClass}}',
-                'elements': schemaMarkdownDoc({{packageVariable}}Types, '{{packageClass}}', {'params': encodeQueryString(this.params)})
+                'elements': schemaMarkdownDoc({{packageVariable}}Types, '{{packageClass}}', schemaMarkdownDocOptions)
             };
         }
 

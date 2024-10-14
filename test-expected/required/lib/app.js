@@ -124,9 +124,18 @@ export class MyPackage {
     main() {
         // Help?
         if ('help' in this.params) {
+            const markdownOptions = {};
+            /* c8 ignore next 3 */
+            if (this.window.navigator.clipboard) {
+                markdownOptions.copyFn = (text) => this.window.navigator.clipboard.writeText(text);
+            }
+            const schemaMarkdownDocOptions = {
+                'params': encodeQueryString(this.params),
+                markdownOptions
+            };
             return {
                 'title': 'MyPackage',
-                'elements': schemaMarkdownDoc(myPackageTypes, 'MyPackage', {'params': encodeQueryString(this.params)})
+                'elements': schemaMarkdownDoc(myPackageTypes, 'MyPackage', schemaMarkdownDocOptions)
             };
         }
 
