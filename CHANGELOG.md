@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024-10-14
+
+- [66b5683](https://github.com/craigahobbs/javascript-template/commit/66b5683) - schema-markdown-doc 1.9
+
 ## 2024-09-23
 
 - [ea437ac](https://github.com/craigahobbs/javascript-template/commit/ea437ac) - tweak spacing
