@@ -1,5 +1,13 @@
 # Changelog
 
+## 2025-03-04
+
+- [0122cfd](https://github.com/craigahobbs/javascript-template/commit/0122cfd) - update javascript-build stub
+
+## 2025-03-03
+
+- [31bf8af](https://github.com/craigahobbs/javascript-template/commit/31bf8af) - update javascript-build stub
+
 ## 2024-10-14
 
 - [66b5683](https://github.com/craigahobbs/javascript-template/commit/66b5683) - schema-markdown-doc 1.9
