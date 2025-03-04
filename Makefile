@@ -42,7 +42,7 @@ test-$(strip $(1)): build/venv.build
 	build/venv/$$(VENV_BIN)/template-specialize template/ test-actual/$(strip $(1))/ $(strip $(2))
 	$(call SED_FILE, 's/[0-9]{4}(,? John Doe)/YYYY\1/g', test-actual/$(strip $(1))/LICENSE)
 	diff -r test-actual/$(strip $(1))/ test-expected/$(strip $(1))/
-	$$(MAKE) $(MAKEJ) -C test-actual/$(strip $(1))/ commit
+	JAVASCRIPT_BUILD_DIR=../../../javascript-build $$(MAKE) $(MAKEJ) -C test-actual/$(strip $(1))/ commit
 	rm -rf test-actual/$(strip $(1))/
 endef
 
