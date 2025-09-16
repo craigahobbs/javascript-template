@@ -21,7 +21,7 @@
         "test": "node --test test/"
     },
     "dependencies": {
-        "element-model": "~1.1",
+        "element-model": "~1.2",
         "schema-markdown": "~1.2",
         "schema-markdown-doc": "~2.0"
     }
