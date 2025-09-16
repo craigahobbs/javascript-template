@@ -1,5 +1,11 @@
 # Changelog
 
+## 2025-09-16
+
+- [607e372](https://github.com/craigahobbs/javascript-template/commit/607e372) - element-model 1.2
+
+- [fa80c58](https://github.com/craigahobbs/javascript-template/commit/fa80c58) - update javascript-build stub
+
 ## 2025-04-01
 
 - [8947de5](https://github.com/craigahobbs/javascript-template/commit/8947de5) - schema-markdown-doc 2.0
