@@ -23,7 +23,7 @@
     "dependencies": {
         "element-model": "~1.2",
         "schema-markdown": "~1.2",
-        "schema-markdown-doc": "~2.0"
+        "schema-markdown-doc": "~2.1"
     }
 {%- endif %}
 }
