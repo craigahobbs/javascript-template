@@ -74,17 +74,11 @@ test('{{packageClass}}.main, help', () => {
     const {window} = new JSDOM();
     const app = new {{packageClass}}(window);
     app.updateParams('help=1');
-    const result = app.main();
-    assert.equal(result.elements[0][0].html, 'h1');
-    result.elements[0] = '<helpElements>';
     assert.deepEqual(
-        result,
+        app.main(),
         {
-            'title': '{{packageClass}}',
-            'elements': [
-                '<helpElements>',
-                null
-            ]
+            'title': 'Help',
+            'elements': {'html': 'p', 'elem': {'text': 'Help'}}
         }
     );
 });

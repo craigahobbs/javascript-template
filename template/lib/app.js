@@ -6,10 +6,9 @@
 
 /** @module lib/app */
 
-import {decodeQueryString, encodeQueryString, jsonStringifySortKeys} from 'schema-markdown/lib/encode.js';
+import {decodeQueryString, jsonStringifySortKeys} from 'schema-markdown/lib/encode.js';
 import {parseSchemaMarkdown} from 'schema-markdown/lib/parser.js';
 import {renderElements} from 'element-model/lib/elementModel.js';
-import {schemaMarkdownDoc} from 'schema-markdown-doc/lib/schemaMarkdownDoc.js';
 import {validateType} from 'schema-markdown/lib/schema.js';
 
 
@@ -127,18 +126,9 @@ export class {{packageClass}} {
     main() {
         // Help?
         if ('help' in this.params) {
-            const markdownOptions = {};
-            /* c8 ignore next 3 */
-            if (this.window.navigator.clipboard) {
-                markdownOptions.copyFn = (text) => this.window.navigator.clipboard.writeText(text);
-            }
-            const schemaMarkdownDocOptions = {
-                'params': encodeQueryString(this.params),
-                markdownOptions
-            };
             return {
-                'title': '{{packageClass}}',
-                'elements': schemaMarkdownDoc({{packageVariable}}Types, '{{packageClass}}', schemaMarkdownDocOptions)
+                'title': 'Help',
+                'elements': {'html': 'p', 'elem': {'text': 'Help'}}
             };
         }
 
