@@ -1,5 +1,9 @@
 # Changelog
 
+## 2025-11-21
+
+- [aa44153](https://github.com/craigahobbs/javascript-template/commit/aa44153) - eliminate dependency on schema-markdown-doc
+
 ## 2025-09-16
 
 - [0723fbb](https://github.com/craigahobbs/javascript-template/commit/0723fbb) - schema-markdown-doc 2.1
