@@ -3,7 +3,7 @@
 
 /** @module lib/app */
 
-import {decodeQueryString, encodeQueryString, jsonStringifySortKeys} from 'schema-markdown/lib/encode.js';
+import {decodeQueryString, jsonStringifySortKeys} from 'schema-markdown/lib/encode.js';
 import {parseSchemaMarkdown} from 'schema-markdown/lib/parser.js';
 import {renderElements} from 'element-model/lib/elementModel.js';
 import {validateType} from 'schema-markdown/lib/schema.js';

@@ -23,5 +23,8 @@
     "dependencies": {
         "element-model": "~1.2",
         "schema-markdown": "~1.2"
+    },
+    "devDependencies": {
+        "markdown-model": "~2.2"
     }
 }
