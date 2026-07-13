@@ -66,7 +66,7 @@ test('{{packageClass}}.render, hash parameter error', () => {
     assert.equal(app.window, window);
     assert.equal(app.params, null);
     assert.equal(window.document.title, 'MyPackage');
-    assert.equal(window.document.body.innerHTML, "<p>Error: Unknown member 'foo'</p>");
+    assert.equal(window.document.body.innerHTML, '<p>Error: Unknown member "foo"</p>');
 });
 
 

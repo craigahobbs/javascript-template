@@ -22,7 +22,7 @@
     }{% if noapp is not defined or not noapp %},
     "dependencies": {
         "element-model": "~1.2",
-        "schema-markdown": "~1.2"
+        "schema-markdown": "~1.3"
     },
     "devDependencies": {
         "markdown-model": "~2.2"
